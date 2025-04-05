@@ -14,7 +14,7 @@ function navMenu() {
 }
 
 
-function toggleMenu()
+export function toggleMenu()
 {   
     let toggleButton = document.querySelector(".toggle-switch")
     let body = document.querySelector("body")
