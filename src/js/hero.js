@@ -1,4 +1,4 @@
-  // Sample API key - replace with your actual API key
+         // Sample API key - replace with your actual API key
             const API_KEY = '3c5d79694d82b9e1fe6883553a34fc2d';
             const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
 
@@ -287,3 +287,4 @@
 
             // Load hero slider when page loads
             document.addEventListener('DOMContentLoaded', loadHeroSlider);
+    
