@@ -142,11 +142,7 @@ export function renderMovies(movies, loadMore = false) {
     .map(
       movie => `
     <div class="movie-card" data-genre="${movie.genre || 'unknown'}">
-      <img src="${
-        movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-        }" alt="${movie.title}" class="movie-poster">
-      class="movie-poster">
-      onerrror="this.src='./img/herodesktop.svg';">
+      <img src="${movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`}" alt="${movie.title}" class="movie-poster">class="movie-poster">onerrror="this.src='./img/herodesktop.svg';">
       <h3 class="movie-title">${movie.title}</h3>
       <p class="movie-genre">${movie.genre || 'Kategori belirtilmemiş'}</p>
       
