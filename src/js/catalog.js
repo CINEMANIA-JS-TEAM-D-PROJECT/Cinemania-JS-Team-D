@@ -35,6 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTrendingMovies();
     loadMovieOfTheDay();
 });
+// Trend Filmleri Yükle
+async function loadTrendingMovies(page = 1) {
+    try {
+        const response = await fetch(`${BASE_URL}/trending/movie/week?page=${page}`, options);
+        const data = await response.json();
+        displayMovies(data.results);
+        updatePagination(data.page, data.total_pages);
+    } catch (error) {
+        console.error('Trend filmler yüklenirken hata oluştu:', error);
+        showNoResults();
+    }
+}
+
 // Film Arama 
 window.searchMovies = async function(query, page = 1, year = '') {
     try {
