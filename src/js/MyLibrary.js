@@ -3,7 +3,10 @@ let currentMovies = []; // tüm filmler
 let displayedMovies = 0; // şu ana kadar görüntülenen filmler
 const moviesPerPage = 9;
 const genreMap = {}; // Genre ID-Name eşleşmelerini saklayacak bir obje
-
+// Sample API key - replace with your actual API key
+ const API_KEY = 'YOUR_API_KEY';
+const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
+ 
 document.addEventListener("DOMContentLoaded", () => {
   loadMoviesFromLibrary();
 
