@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --linear: linear-gradient(90deg, #FFC226 0%, #F84119 100%);
+    --orange: #F87719;
+    --linear-dark: linear-gradient(90deg, rgba(0, 0, 0, 0) 63%, rgba(0, 0, 0, 1) 92%);
+    --grey: #B7B7B7;
+    --white: #FFFFFF;
+    --linear2: linear-gradient(90deg, rgba(248, 65, 25, 1) 0%, rgba(248, 159, 25, 0.68) 100%);
+    --background: #111111;
+    --secondary-text: #F8F8F8;
+    --secondary-black: #282828;
+    --grey-white-theme: #595959;
+    --shadow-dark: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
+    --shadow-orange: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    --shadow-light: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+
+
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Roboto", sans-serif;
+  }
+  body{
+    background: var(--background);
+    color: var(--white);
+    min-height: 100vh;
+  }
+  .upcoming-section{
+    display: flex;
+    flex-direction: column;
+    margin: auto 20px;
+    
+    font-weight: 700;
+    
+  }
+  .upcoming-section-wrapper{
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .upcoming-header{
+    color: var(--white);
+    text-align:left;
+    vertical-align:text-top;
+    font-size:16px;
+    margin-top: 32px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    
+  }
+  .img-box{
+    background-image: url(../img/img-mobil.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 402px;
+    width:280px;
+    object-fit: cover;
+    border-radius:5px;
+    
+  }
+  .upcoming-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .upcoming-header-2{
+    color: var(--white);
+    text-align:left;
+    vertical-align:text-top;
+    font-size:20px;
+    font-family:Roboto;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    
+    margin-bottom: 20px;
+  }
+  .lists{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+  }
+  .upcoming-section-2-list{
+    display: flex;
+    flex-direction: row;
+    gap: 57px;
+  }
+  .upcoming-section-2-list-2{
+    display: flex;
+    flex-direction: row;
+    gap: 77px;
+  }
+  .upcoming-section-list-1{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .upcoming-h3{
+    color: var(--grey);
+    text-align:left;
+    vertical-align:text-top;
+    font-size:16px;
+    
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+  }
+  .release-date-text{
+   color: var(--orange);
+   text-align:left;
+   vertical-align:text-middle;
+   font-size:16px;
+   
+   line-height:auto;
+   border-style:hidden;
+   outline:none;
+  }
+  .vote-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--secondary-text);
+  }
+  .vote-span, .vote-span-votes{
+    display: block;
+    background-color: var(--white);
+    color: var(--background);
+    text-align:center;
+    border-radius: 5px;
+    font-size:14px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    padding-left:8px;
+    padding-right:8px;
+    padding-top:1px;
+    padding-bottom:1px;
+  }
+  .popularity-text{
+    color: var(--white);
+    text-align:left;
+    vertical-align:text-middle;
+    font-size:16px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+  }
+  .genre-text{
+    color: var(--white);
+    text-align:left;
+    vertical-align:text-middle;
+    font-size:16px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+  }
+  .upcoming-about-header{
+    margin-top: 20px;
+    margin-bottom: 16px;
+    color: var(--grey);
+    text-align:left;
+    vertical-align:text-middle;
+    font-size:16px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+  }
+  .upcoming-about-text{
+    color: var(--secondary-text);
+    text-align:left;
+    vertical-align:text-top;
+    font-size:14px;
+    line-height:20px;
+    border-style:hidden;
+    outline:none;
+    margin-bottom: 40px;
+    font-weight: 400;
+    width: 280px;
+  }
+  .upcoming-button{
+    font-weight: 700;
+    border: none;
+    background: var(--linear);
+    color: var(--background);
+    height:38px;
+    width:140px;
+    border-radius:74px;
+    padding-left:24px;
+    padding-right:24px;
+    padding-top:12px;
+    padding-bottom:12px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    text-align:center;
+    vertical-align:text-middle;
+    font-size:12px;
+    line-height:auto;
+    border-style:hidden;
+    outline:none;
+    margin-bottom: 40px;
+
+  }
+  @media screen and (min-width: 768px) {
+   
+    
+    .upcoming-section {
+        margin: auto 32px;
+    }
+  
+   
+    .upcoming-header{
+   
+      font-size:24px;
+
+    }
+   
+  
+  
+    .img-box {
+        background-image: url(../img/img-tablet.png);
+       width: 704px;
+       height: 400px; 
+      
+    }
+  
+    
+  
+  
+   
+    .upcoming-header-2 {
+        font-size:28px;
+    }
+  
+  .lists{
+    display: flex;
+    flex-direction: row;
+    gap: 118px;
+  }
+    
+  
+  
+   .upcoming-about-text{
+    width: 625px;
+   }
+  
+    .upcoming-button {
+        height:40px;
+        width:155px;
+        border-radius:74px;
+        padding-left:24px;
+        padding-right:24px;
+        padding-top:12px;
+        padding-bottom:12px;
+        display:flex;
+        flex-direction:row;
+        justify-content:flex-start;
+        align-items:flex-start;
+    }
+  }
+  @media screen and (min-width: 1280px){
+    .upcoming-section {
+      
+  }
+
+ .upcoming-wrapper{
+    display: flex;
+    flex-direction: row;
+    
+    gap: 16px;
+  }
+  .upcoming-header{
+    
+    font-size:28px;
+
+  }
+ 
+
+
+  .img-box {
+      background-image: url(../img/img-desktop.jpg);
+     width: 805px;
+     height: 458px; 
+    
+  }
+
+  
+
+
+ 
+  .upcoming-header-2 {
+      font-size:32px;
+  }
+
+.lists{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+
+ .upcoming-about-text{
+  width: 390px;
+  margin-bottom: 20px;
+ }
+
+  .upcoming-button {
+      height:40px;
+      width:155px;
+      border-radius:74px;
+      padding-left:24px;
+      padding-right:24px;
+      padding-top:12px;
+      padding-bottom:12px;
+      display:flex;
+      flex-direction:row;
+      justify-content:center;
+      align-items:center;
+  }
+  }
+  

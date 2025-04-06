@@ -4,11 +4,11 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  /* margin-top: 78px; */
+  margin-top: 78px;
 }
 
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
