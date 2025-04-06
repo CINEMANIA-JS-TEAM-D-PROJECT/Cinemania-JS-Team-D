@@ -45,19 +45,18 @@
   /* padding-left: 32px;
   padding-right: 32px; */
 }
-.card {
+/* .card {
   border-radius: 5px;
-  width: 395px;
-  /* height: 576px; */
-  background: linear-gradient(
+   width: 395px; 
+   height: 576px; 
+   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
     rgba(0, 0, 0, 0.9) 92.16%
-  );
+  ); 
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0, 9);
-}
+} */
 .card-image {
-  width: 395px;
   border-radius: 5px;
   width: 395px;
   /* height: 576px; */
