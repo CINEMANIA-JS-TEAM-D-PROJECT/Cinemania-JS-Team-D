@@ -46,8 +46,8 @@ vertical-align: middle;
 
 }
 .no-movies-message {
-  width: 584;
-height: 124;
+  width: 584px;
+height: 124px;
 top: 880px;
 left: 348px;
   font-family: Roboto;
@@ -97,8 +97,8 @@ border-width: 1px;
 border: 1px solid rgba(255, 255, 255, 1)
 }
 .search-btn {
-  width: 133;
-height: 40;
+  width: 133px;
+height: 40px;
 top: 640px;
 left: 317px;
 border-radius: 74px;
@@ -110,4 +110,69 @@ gap: 10px;
 background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 
 }
+#load-more {
+  width: 134px;
+height: 52px;
+top: 2722px;
+left: 573px;
+border-radius: 74px;
+padding-top: 12px;
+padding-right: 24px;
+padding-bottom: 12px;
+padding-left: 24px;
+gap: 10px;
+background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+}
+
+}
+@media screen and (max-width: 768px) {
+
+  #genre-filter {
+    width: 173px;
+height: 40px;
+top: 468px;
+left: 20px;
+border-width: 1px;
+border: 1px solid rgba(255, 255, 255, 1)
+  }
+  #load-more {
+    width: 106px;
+height: 38px;
+top: 4330px;
+left: 107px;
+border-radius: 74px;
+padding-top: 12px;
+padding-right: 24px;
+padding-bottom: 12px;
+padding-left: 24px;
+gap: 10px;
+background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+
+  }
+  .no-movies-message {
+    width: 280px;
+height: 120px;
+top: 472px;
+left: 21px;
+font-family: Roboto;
+font-weight: 400;
+font-size: 20px;
+line-height: 28px;
+letter-spacing: 0%;
+text-align: center;
+  }
+.search-button {
+  width: 121px;
+height: 38px;
+top: 612px;
+left: 99px;
+border-radius: 74px;
+padding-top: 12px;
+padding-right: 24px;
+padding-bottom: 12px;
+padding-left: 24px;
+gap: 10px;
+background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+}
+
 }
