@@ -1,5 +1,5 @@
 .weekly-trends {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   /* width: 1280px;
   height: 720px; */
 }
@@ -16,7 +16,7 @@
 .title {
   width: 215px;
   /* height: 33px; */
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 28px;
   line-height: 100%;
@@ -27,7 +27,7 @@
 .seeall {
   width: 84px;
   /* height: 33px; */
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 28px;
   line-height: 100%;
@@ -74,7 +74,7 @@
   /* height: 54px; */
   /* top: 1361px;
   left: 52px; */
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -88,7 +88,7 @@
   width: 223px;
   /* top: 1361px;
   left: 52px; */
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
