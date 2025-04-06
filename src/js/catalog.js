@@ -35,47 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTrendingMovies();
     loadMovieOfTheDay();
 });
-
-// Günün Filmini Yükle
-async function loadMovieOfTheDay() {
-    try {
-        const response = await fetch(`${BASE_URL}/trending/movie/day`, options);
-        const data = await response.json();
-        if (data.results && data.results.length > 0) {
-            const movie = data.results[0];
-            updateHeroSection(movie);
-        }
-    } catch (error) {
-        console.error('Günün filmi yüklenirken hata oluştu:', error);
-    }
-}
-
-// Hero Bölümünü Güncelle
-function updateHeroSection(movie) {
-    const backdropPath = movie.backdrop_path;
-    const heroSection = document.querySelector('.hero-section');
-    heroSection.style.backgroundImage = `url(${IMAGE_BASE_URL}original${backdropPath})`;
-    
-    featuredMovie.innerHTML = `
-        <h2>${movie.title}</h2>
-        <p>${movie.overview}</p>
-        <div class="movie-rating">Puan: ${movie.vote_average.toFixed(1)}/10</div>
-    `;
-}
-
-// Trend Filmleri Yükle
-async function loadTrendingMovies(page = 1) {
-    try {
-        const response = await fetch(`${BASE_URL}/trending/movie/week?page=${page}`, options);
-        const data = await response.json();
-        displayMovies(data.results);
-        updatePagination(data.page, data.total_pages);
-    } catch (error) {
-        console.error('Trend filmler yüklenirken hata oluştu:', error);
-        showNoResults();
-    }
-}
-
 // Film Arama 
 window.searchMovies = async function(query, page = 1, year = '') {
     try {
