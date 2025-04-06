@@ -239,17 +239,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!moviePoster) return; // poster elementi yoksa devam etme
 
   const screenWidth = window.innerWidth; // Ekran genişliği
-  let fallbackPoster = '';
+  let fallbackPoster = './img/herodesktop.svg';
 
   
 
   // Ekran genişliğine göre resim seçimi
   if (screenWidth <= 768) {
     // Tablet veya mobil cihaz için küçük resim
-    fallbackPoster = 'img/movie-poster-tablet.jpg';
+    fallbackPoster = 'img/tablet.png';
   } else {
     // Masaüstü cihaz için büyük resim
-    fallbackPoster= 'img/movie-poster-desktop.jpg';
+    fallbackPoster= 'img/herodesktop.svg';
   }
 
   moviePoster.src = fallbackPoster
