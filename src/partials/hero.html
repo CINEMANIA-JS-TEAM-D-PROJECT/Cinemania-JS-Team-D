@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="hero-container" id="hero-container">
+    <section class="hero" id="hero">
+        <!-- Hero content will be dynamically inserted here -->
+    </section>
 
 <head>
     <meta charset="UTF-8">
@@ -61,4 +63,16 @@
     </script>
 </body>
 
-</html>
+<div id="trailerModal" class="modal">
+<div class="modal-content">
+    <span class="close-modal" onclick="closeTrailerModal()">&times;</span>
+    <div class="video-container" id="trailerVideoContainer"></div>
+</div>
+</div>
+
+<div id="detailsModal" class="modal">
+<div class="modal-content">
+    <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
+    <div class="details-content" id="movieDetailsContainer"></div>
+</div>
+</div>
