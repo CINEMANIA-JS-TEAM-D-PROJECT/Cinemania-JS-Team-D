@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="hero-container" id="hero-container">
+    <section class="hero" id="hero">
+        <!-- Hero content will be dynamically inserted here -->
+    </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinemania</title>
- 
-</head>
-
-<section class="hero" id="hero">
-    <!-- Hero content will be dynamically inserted here -->
-</section>
+    <!-- Dots navigation at the bottom -->
+    <div class="slider-dots-container">
+        <div id="slider-dots">
+            <!-- Dots will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
 
 <div id="trailerModal" class="modal">
     <div class="modal-content">
@@ -26,9 +25,20 @@
     </div>
 </div>
 
-    <script src="../js/hero.js" type="modal">
-       
-    </script>
-</body>
+<section class="hero" id="hero">
+<!-- Hero content will be dynamically inserted here -->
+</section>
 
-</html>
+<div id="trailerModal" class="modal">
+<div class="modal-content">
+    <span class="close-modal" onclick="closeTrailerModal()">&times;</span>
+    <div class="video-container" id="trailerVideoContainer"></div>
+</div>
+</div>
+
+<div id="detailsModal" class="modal">
+<div class="modal-content">
+    <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
+    <div class="details-content" id="movieDetailsContainer"></div>
+</div>
+</div>
