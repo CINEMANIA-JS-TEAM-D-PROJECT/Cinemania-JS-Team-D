@@ -33,7 +33,7 @@ const options = {
 // Sayfa Yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     loadTrendingMovies();
-    loadMovieOfTheDay();
+    
 });
 // Trend Filmleri Yükle
 async function loadTrendingMovies(page = 1) {
