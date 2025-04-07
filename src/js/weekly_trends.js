@@ -1,3 +1,4 @@
+// import modal from './modal.js';
 const options = {
   method: 'GET',
   headers: {
@@ -10,6 +11,8 @@ const options = {
 document.addEventListener('DOMContentLoaded', () => {
   const cardContainer = document.getElementById('cards');
   const loader = document.getElementById('loader-weekly');
+  
+  
 
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
     .then((res) => res.json())
@@ -33,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.backgroundImage = `url(${imageUrl})`;
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
-        card.style.height = '400px';
-        card.style.width = '250px';
+        card.style.height = '574px';
+        card.style.width = '395px';
         card.style.margin = '10px';
         card.style.color = 'white';
         card.style.display = 'flex';
