@@ -241,13 +241,13 @@ async function openTrailerModal(movieId) {
         `;
   }
 
-  document.getElementById('trailerModal').style.display = 'flex';
+  document.getElementById('trailer-modal').style.display = 'flex';
   clearInterval(slideInterval); // Pause slider when modal is open
 }
 
 // Function to close trailer modal
 function closeTrailerModal() {
-  document.getElementById('trailerModal').style.display = 'none';
+  document.getElementById('trailer-modal').style.display = 'none';
   document.getElementById('trailerVideoContainer').innerHTML = '';
   resetSlideInterval(); // Resume slider when modal is closed
 }
