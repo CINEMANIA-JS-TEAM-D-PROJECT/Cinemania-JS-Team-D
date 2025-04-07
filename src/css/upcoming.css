@@ -9,14 +9,15 @@
   );
   --grey: #b7b7b7;
   --white: #ffffff;
+  --black: #000000;
   --linear2: linear-gradient(
     90deg,
     rgba(248, 65, 25, 1) 0%,
     rgba(248, 159, 25, 0.68) 100%
   );
-  --background: #111111;
-  --secondary-text: #f8f8f8;
-  --secondary-black: #282828;
+  --background: var(--black);
+  --secondary-text: var(--white);
+  --secondary-black: #000000;
   --grey-white-theme: #595959;
   --shadow-dark: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
   --shadow-orange: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
