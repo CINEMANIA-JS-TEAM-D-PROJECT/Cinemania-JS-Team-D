@@ -1,5 +1,4 @@
 
-
 // Global değişkenler
 let currentMovies = []; // tüm filmler
 let displayedMovies = 0; // şu ana kadar görüntülenen filmler
@@ -56,6 +55,7 @@ function fetchGenres() {
       const allOption = document.createElement('option');
       allOption.value = 'all';
       allOption.textContent = 'Genre';
+      allOption.selected = true;
       genreSelect.appendChild(allOption);
 
       // API'den gelen türleri ekle
@@ -110,7 +110,7 @@ function updateMovieGenres() {
 
 // Filmleri render et
 export function renderMovies(movies, loadMore = false) {
-  const movieContainer = document.getElementById('movie-list');
+  const movieContainer = document.getElementById("movie-list");
 
   // Eğer film yoksa mesaj göster
   if (movies.length === 0) {
@@ -121,41 +121,38 @@ export function renderMovies(movies, loadMore = false) {
     </div>
   `;
     // Butona tıklanınca catalog sayfasına yönlendir
-    const searchBtn = document.getElementById('go-to-catalog');
+    const searchBtn = document.getElementById("go-to-catalog");
     if (searchBtn) {
-      searchBtn.addEventListener('click', () => {
-        window.location.href = 'index.html'; // veya sayfanın tam yolu
+      searchBtn.addEventListener("click", () => {
+        window.location.href = "catalog.html"; // veya sayfanın tam yolu
       });
-    }                       
-    const loadMoreBtn = document.getElementById('load-more');
+    }
+    const loadMoreBtn = document.getElementById("load-more");
     if (loadMoreBtn) {
-      loadMoreBtn.style.display = 'none';
+      loadMoreBtn.style.display = "none";
     }
     return;
   }
-
+// eğer filmler varsa onları render et
   const startIndex = loadMore ? displayedMovies : 0;
   const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
   const moviesToShow = movies.slice(startIndex, endIndex);
 
   const moviesHTML = moviesToShow
     .map(
-      movie => `
-    <div class="movie-card" data-genre="${movie.genre || 'unknown'}">
+      (movie) => `
+    <div class="movie-card" data-genre="${movie.genre || "unknown"}">
       <img src="${
         movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-        }" alt="${movie.title}" class="movie-poster">
-      class="movie-poster">
-      onerrror="this.src='./img/herodesktop.svg';">
+      }" alt="${movie.title}" class="movie-poster">
       <h3 class="movie-title">${movie.title}</h3>
-      <p class="movie-genre">${movie.genre || 'Kategori belirtilmemiş'}</p>
+      <p class="movie-genre">${movie.genre || "Kategori belirtilmemiş"}</p>
       
       <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
     </div>
   `
-      
     )
-    .join('');
+    .join("");
 
   if (loadMore) {
     movieContainer.innerHTML += moviesHTML;
@@ -166,22 +163,27 @@ export function renderMovies(movies, loadMore = false) {
   displayedMovies = endIndex;
 
   // Kaldırma butonları
-  const removeButtons = document.querySelectorAll('.remove-btn');
-  removeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const movieId = button.getAttribute('data-id');
+  const removeButtons = document.querySelectorAll(".remove-btn");
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const movieId = button.getAttribute("data-id");
       removeMovie(movieId);
     });
   });
 
   // Load more butonu görünürlük
-  const loadMoreBtn = document.getElementById('load-more');
+  const loadMoreBtn = document.getElementById("load-more");
+
+  // Eğer kütüphanede 9'dan fazla film varsa buton görünsün, yoksa gizlensin
   if (loadMoreBtn) {
-    loadMoreBtn.style.display = endIndex < movies.length ? 'block' : 'none';
- 
-  console.log('endIndex:', endIndex);
-  console.log('movies.length:', movies.length);
- }
+    if (currentMovies.length > 9) {
+      loadMoreBtn.style.display = "block"; // Eğer 9'dan fazla film varsa buton görünür
+    } else {
+      loadMoreBtn.style.display = "none"; // 9'dan az film varsa buton gizlenir
+    }
+
+    console.log("currentMovies.length:", currentMovies.length); // Burada kütüphanedeki toplam film sayısını kontrol edebilirsin
+  }
 }
 
 // Filmleri türe göre filtrele
@@ -221,13 +223,19 @@ function saveMovieToLibrary(movie) {
 
 // Filmi kütüphaneden kaldır
 function removeMovie(movieId) {
-  let library = JSON.parse(localStorage.getItem('library')) || [];
-  library = library.filter(movie => movie.id != movieId);
-  localStorage.setItem('library', JSON.stringify(library));
+  let library = JSON.parse(localStorage.getItem("library")) || [];
+  library = library.filter((movie) => movie.id != movieId);
+  localStorage.setItem("library", JSON.stringify(library));
 
   // Güncel listeyi göster
   currentMovies = library;
-  displayedMovies = 0;
+  // Eğer Load More butonu varsa ve 9'dan fazla film varsa, buton görünür olmalı
+  const loadMoreBtn = document.getElementById("load-more");
+  if (loadMoreBtn && library.length > 9) {
+    loadMoreBtn.style.display = "block";
+  }
+
+  // Film silindikten sonra güncellenmiş listeyi render et
   renderMovies(library, false);
 }
 
