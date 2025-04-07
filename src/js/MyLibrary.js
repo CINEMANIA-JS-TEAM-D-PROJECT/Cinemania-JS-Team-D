@@ -120,6 +120,10 @@ export function renderMovies(movies, loadMore = false) {
       <button id="go-to-catalog" class="search-btn">Search movie</button>
     </div>
   `;
+    // Genre select'i gizle
+    if (genreSelect) {
+      genreSelect.style.display = "none";
+    }
     // Butona tıklanınca catalog sayfasına yönlendir
     const searchBtn = document.getElementById("go-to-catalog");
     if (searchBtn) {
@@ -133,7 +137,8 @@ export function renderMovies(movies, loadMore = false) {
     }
     return;
   }
-// eğer filmler varsa onları render et
+  
+  // eğer filmler varsa onları render et
   const startIndex = loadMore ? displayedMovies : 0;
   const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
   const moviesToShow = movies.slice(startIndex, endIndex);
