@@ -6,11 +6,8 @@
 }
 
 body {
-  background-color: black;
-  color: white;
- 
-  
-  
+  background-color: #111111;
+  color: #ffffff;
   
   
 }
@@ -25,6 +22,8 @@ body {
   width: 100%;
   z-index: 100;
   height: 9.1vh;
+  top: 0;
+  
   
   
 }
@@ -49,21 +48,22 @@ body {
   gap: 30px;
   
   
+  
 }
 
-.header{
-  color: white;
-}
+
 
 .nav-links a {
   
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  color: white;
+  
 }
 
 .nav-links a:hover {
-  color: #FF9800;
+  color: #FF9800 !important;
 }
 
 .toggle-switch {
@@ -101,32 +101,41 @@ body {
 .burger{
   display: none;
 }
+
+
 @media (max-width: 720px) {
-   .nav-links{
+  .nav-links {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 0;
+    left: -100%; /* Menü başlangıçta gizli, soldan çıkacak */
     top: 9vh;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.8);
     width: 55%;
-    align-items: center;
+    align-items: start;
+    padding-left: 30px;
     height: 91vh;
     padding-top: 25px;
     gap: 55px;
     transition: all ease .5s;
-    transform: translateX(100%);
-
   }
-  .nav-links.active{
-    transform: translateX(-0%);
+
+  .nav-links.active {
+    left: 0; /* Menü aktif olduğunda soldan sıfırlanır, görünür hale gelir */
     transition: all ease .5s;
   }
+
+
 
   .navbar .burger{
     display: block;
     cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navbar .burger:hover{
+    color: #FF9800 !important;
   }
 
   .toggle-switch{

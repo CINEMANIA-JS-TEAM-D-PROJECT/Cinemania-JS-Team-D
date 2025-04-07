@@ -137,7 +137,7 @@ export function renderMovies(movies, loadMore = false) {
     }
     return;
   }
-  
+
   // eğer filmler varsa onları render et
   const startIndex = loadMore ? displayedMovies : 0;
   const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
@@ -152,7 +152,7 @@ export function renderMovies(movies, loadMore = false) {
       }" alt="${movie.title}" class="movie-poster">
       <h3 class="movie-title">${movie.title}</h3>
       <p class="movie-genre">${movie.genre || "Kategori belirtilmemiş"}</p>
-      
+
       <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
     </div>
   `
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const moviePoster = document.getElementById('responsive-poster');
   const screenWidth = window.innerWidth; // Ekran genişliği
 
- 
+
 
   if (screenWidth <= 480) {
     moviePoster.src = "img/libraryhero.png";
@@ -265,5 +265,5 @@ document.addEventListener('DOMContentLoaded', () => {
     moviePoster.src = "img/libraryhero@3x.png";
   }
 
-  
+
 });
