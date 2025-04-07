@@ -239,31 +239,18 @@ function loadMoviesFromLibrary() {
   renderMovies(library, false);
 }
 document.addEventListener('DOMContentLoaded', () => {
-  const moviePoster = document.getElementById('movie-poster');
+  const moviePoster = document.getElementById('responsive-poster');
   const screenWidth = window.innerWidth; // Ekran genişliği
 
-  let posterUrl = '';
+ 
 
-  // Ekran genişliğine göre resim seçimi
-  if (screenWidth <= 768) {
-    // Tablet veya mobil cihaz için küçük resim
-    posterUrl = 'img/movie-poster-tablet.jpg';
+  if (screenWidth <= 480) {
+    moviePoster.src = "img/libraryhero.png";
+  } else if (screenWidth <= 768) {
+    moviePoster.src = "img/libraryhero@2x.png";
   } else {
-    // Masaüstü cihaz için büyük resim
-    posterUrl = 'img/movie-poster-desktop.jpg';
+    moviePoster.src = "img/libraryhero@3x.png";
   }
 
-  moviePoster.src = posterUrl;
-
-  // Eğer API ile veri alıyorsanız, buraya API istekleri ekleyebilirsiniz
-  fetch('https://api.themoviedb.org/3/movie/550?api_key=YOUR_API_KEY')
-    .then(response => response.json())
-    .then(data => {
-      const posterApiUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-      moviePoster.src = posterApiUrl;
-    })
-    .catch(error => {
-      console.error('Error fetching movie data:', error);
-      moviePoster.src = './img/backup-image.jpg'; // Yedek resim
-    });
+  
 });
