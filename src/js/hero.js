@@ -305,4 +305,14 @@ window.onclick = function (event) {
 };
 
 // Load hero slider when page loads
+
+window.goToSlide = goToSlide;
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;
+window.openTrailerModal = openTrailerModal;
+window.closeTrailerModal = closeTrailerModal;
+window.openDetailsModal = openDetailsModal;
+window.closeDetailsModal = closeDetailsModal;
+
 document.addEventListener('DOMContentLoaded', loadHeroSlider);
+
