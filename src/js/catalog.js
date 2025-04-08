@@ -1,3 +1,5 @@
+import { openModal, closeModal } from './modal.js';
+
 // API Yapılandırması
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2JkYTQ2NzJkMGZkMWRhYjU3NzJjYjJkNzhhYjMyNCIsIm5iZiI6MTc0MzcxNjUyNC44MjksInN1YiI6IjY3ZWYwMGFjYjNlMDM1Mjg2Y2Q5MWZkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j0Mea4sdRcdv4xLRcxt8bZgkEFSrxjdNrJf6CHcoW7k';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -33,7 +35,7 @@ const options = {
 // Sayfa Yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     loadTrendingMovies();
-    
+  
 });
 // Trend Filmleri Yükle
 async function loadTrendingMovies(page = 1) {
@@ -120,9 +122,15 @@ function displayMovies(movies) {
                     <span>${movie.vote_average.toFixed(1)}</span>
                 </div>
             </div>
+         
         `;
+        movieCard.addEventListener('click', () => {
+            openModal(movie);
+          });
         moviesGrid.appendChild(movieCard);
+       
     });
+ 
 }
 
 // Film türlerini isimlere çevir
