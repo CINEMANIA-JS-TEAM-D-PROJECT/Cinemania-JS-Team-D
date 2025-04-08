@@ -93,7 +93,7 @@ window.searchMovies = async function(query, page = 1, year = '') {
 }
 
 // Filmleri Görüntüle
-function displayMovies(movies) {
+export function displayMovies(movies) {
     moviesGrid.innerHTML = '';
     noResults.classList.add('hidden');
     
@@ -104,7 +104,7 @@ function displayMovies(movies) {
             
         const movieCard = document.createElement('div');
         movieCard.className = 'movie-card';
-        
+
         // Film türlerini al
         const genres = movie.genre_ids ? getGenreNames(movie.genre_ids) : [];
         const year = movie.release_date ? new Date(movie.release_date).getFullYear() : '';
