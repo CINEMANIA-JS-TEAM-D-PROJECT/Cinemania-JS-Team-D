@@ -280,7 +280,7 @@ async function openDetailsModal(movieId) {
         `;
   }
 
-  document.getElementById('detailsModal').style.display = 'flex';
+  document.getElementById('details-Modal').style.display = 'flex';
   clearInterval(slideInterval); // Pause slider when modal is open
 }
 
