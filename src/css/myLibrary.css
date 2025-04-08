@@ -1,3 +1,18 @@
+.movie-list-container {
+   padding: 2rem;
+    margin-top: 0px;
+    
+}
+#movie-list {
+   display: grid;
+    grid-template-columns: repeat(3, 395px); 
+    column-gap: 15px; 
+    row-gap: 32px; 
+    margin-bottom: 2rem;
+    margin-top: 0px; 
+    justify-content: center; 
+    
+}
 #load-more {
   width: 134px;
   height: 52px;
@@ -10,16 +25,18 @@
   padding-left: 24px;
   gap: 10px;
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-
   font: Roboto;
-  font-weight: 500;
+  font-weight: 500px;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 0%;
   color: rgba(17, 17, 17, 1);
-vertical-align: middle;
+display: block;
   cursor: pointer;
   flex-direction: row;
+  display: block;
+  margin:0% auto ;
+  white-space:nowrap ;
 }
 
 #genre-filter {
@@ -43,6 +60,7 @@ line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
 vertical-align: middle;
+border-radius: 8px;
 
 }
 .no-movies-message {
@@ -144,8 +162,23 @@ padding-left: 24px;
 gap: 10px;
 background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 }
-
+#movie-list{
+  display: flex;
+    grid-template-columns: repeat(3, 224px);
+        column-gap: 12px;
+        row-gap: 20px;
+        padding: 0 15px;
+        margin-top: 0;
+        justify-content: center;
+        margin-bottom: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 15px;
+        row-gap: 28px;
+        
 }
+}
+
 @media screen and (max-width: 768px) {
 
   #genre-filter {
@@ -170,6 +203,7 @@ padding-left: 24px;
 gap: 10px;
 background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 cursor: pointer;
+white-space: nowrap;
 
   }
   .no-movies-message {
@@ -178,7 +212,7 @@ height: 120px;
 top: 472px;
 left: 21px;
 font-family: Roboto;
-font-weight: 400;
+font-weight: 400px;
 font-size: 20px;
 line-height: 28px;
 letter-spacing: 0%;
@@ -208,5 +242,17 @@ vertical-align: middle;
 cursor: pointer;
 
 }
+#movie-list {
+  display: grid;
+    grid-template-columns: repeat(1, 280px);
+      width: 280px;
+height: 406px;
+top: 524px;
+left: 20px;
+border-radius: 5px;
 
+
+
+
+  }
 }
