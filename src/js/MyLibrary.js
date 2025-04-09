@@ -119,8 +119,8 @@ export function renderMovies(movies, loadMore = false) {
 
   // Eğer film yoksa mesaj göster
   if (movies.length === 0) {
-    movieContainer.innerHTML = `<div class="no-movies-message">
-      <p>OOPS... We are very sorry! You don’t have any movies at your library.</p>
+    movieContainer.innerHTML = `<div class="message-btn" >
+      <p class ="no-movies-message">OOPS... We are very sorry! You don’t have any movies at your library.</p>
       <button id="go-to-catalog" class="search-btn">Search movie</button>
     </div>
   `;
@@ -179,19 +179,24 @@ export function renderMovies(movies, loadMore = false) {
       removeMovie(movieId);
     });
   });
-
+  displayedMovies = endIndex; // Render edilen filmlerin son indeksi
   // Load more butonu görünürlük
   const loadMoreBtn = document.getElementById('load-more');
 
-  // Eğer kütüphanede 9'dan fazla film varsa buton görünsün, yoksa gizlensin
   if (loadMoreBtn) {
-    if (currentMovies.length > 9) {
-      loadMoreBtn.style.display = 'block'; // Eğer 9'dan fazla film varsa buton görünür
+    // Eğer görüntülenen film sayısı (displayedMovies) tüm filmleri kapsıyorsa butonu gizle,
+    // aksi halde göster.
+    if (displayedMovies >= movies.length) {
+      loadMoreBtn.style.display = 'none';
     } else {
-      loadMoreBtn.style.display = 'none'; // 9'dan az film varsa buton gizlenir
+      loadMoreBtn.style.display = 'block';
     }
-
-    console.log('currentMovies.length:', currentMovies.length); // Burada kütüphanedeki toplam film sayısını kontrol edebilirsin
+    console.log(
+      'displayedMovies:',
+      displayedMovies,
+      'movies.length:',
+      movies.length
+    );
   }
 }
 
@@ -263,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn("'responsive-poster' ID'li element bulunamadı!");
     return; // Element yoksa fonksiyondan çık
   }
-
+ 
   if (screenWidth <= 480) {
     moviePoster.src = 'img/libraryhero.png';
   } else if (screenWidth <= 768) {
