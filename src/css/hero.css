@@ -161,7 +161,7 @@ body {
 }
 
 .dot.active {
-  background-color: #FF9800;
+  background-color: rgb(255, 152, 0);
   transform: scale(1.2);
 }
 
