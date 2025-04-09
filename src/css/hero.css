@@ -9,6 +9,15 @@ body {
   overflow: hidden;
 }
 
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.16), transparent);
+}
+
 .hero {
   height: 100vh;
   position: relative;
@@ -28,7 +37,7 @@ body {
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.6) 20%,
     rgba(0, 0, 0, 0.3) 100%
   );
   z-index: 1;
