@@ -3,13 +3,13 @@
   margin: auto;
 }
 .container-weekly-trends {
-  display:flex; 
+  display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   padding-top: 80px;
   padding-bottom: 28px;
   padding-left: 32px;
-  padding-right: 32px; 
+  padding-right: 32px;
 }
 .title {
   width: 215px;
@@ -43,12 +43,10 @@
 }
 .card {
   transition: transform 0.3s ease-in-out;
-  position: relative;
-  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  
+  /* justify-content: center; */
+  align-items: end;
+  gap: 16px;
 }
 .card:hover {
   transform: scale(0.9);
@@ -79,14 +77,16 @@
 }
 
 .stars {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  justify-self: end;
 }
 
 .star {
   width: 1em;
   height: 1em;
-  display: inline-block;
+  display: flex;
   vertical-align: middle;
   margin-left: 0.1em;
 }
@@ -101,9 +101,13 @@
   fill: none;
 }
 
-
-
 @media (min-width: 768px) and (max-width: 1279px) {
+  .container-weekly {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+  }
   .title {
     width: 185px;
     font-size: 24px;
@@ -117,6 +121,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    gap: 16px;
+    margin: auto;
+    padding: auto;
+  }
+
+  .card {
+    width: 100%;
+    display: flex;
+    background-position: center;
   }
   .content .card h3 {
     width: 112px;
@@ -126,9 +140,37 @@
     width: 112px;
     font-size: 12px;
   }
+  .stars {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .star {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.1em;
+  }
+
+  .star.full use,
+  .star.half use {
+    fill: url(#star-gradient);
+  }
+
+  .star.empty use {
+    stroke: url(#star-gradient);
+    fill: none;
+  }
 }
 
 @media (max-width: 767px) {
+  .container-weekly {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+  }
   .title {
     width: 123px;
     font-size: 16px;
@@ -138,14 +180,24 @@
     font-size: 16px;
   }
   .content {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
   }
   .card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     column-gap: 16px;
-    overflow: hidden;
+    width: 100%;
     position: relative;
+    overflow: hidden;
+  }
+  .card-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
   .content .card h3 {
     width: 72px;
@@ -154,5 +206,30 @@
   .content .card p {
     width: 72px;
     font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .stars {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .star {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.1em;
+  }
+
+  .star.full use,
+  .star.half use {
+    fill: url(#star-gradient);
+  }
+
+  .star.empty use {
+    stroke: url(#star-gradient);
+    fill: none;
   }
 }
