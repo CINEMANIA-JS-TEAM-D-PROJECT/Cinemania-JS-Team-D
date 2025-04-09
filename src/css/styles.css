@@ -1,16 +1,25 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
 /* Common styles */
 
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  body {
+    font-family: "Roboto", 'Arial', sans-serif;
+    background-color: #111111;
+    color: #ffffff;
+    
+    
+  } */
 
 /* Sections style */
 @import url('./header.css');
-@import url('./hero.css');
-@import url('./catalog.css');
-@import url('./modal.css');
+@import url('./myLibrary.css');
 @import url('./footer.css');
+@import url('./catalog.css');
+@import url('./hero.css');
+@import url('./weekly_trends.css');
 @import url('./upcoming.css');

@@ -1,6 +1,7 @@
 // API ayarları
 const API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzYxMTQwZGRhOGZlM2QwOTRlZTJjNjNmMDVhNzY4NCIsIm5iZiI6MTc0MzcxMzIxNS4wNTQwMDAxLCJzdWIiOiI2N2VlZjNiZmIzZTAzNTI4NmNkOTE5NmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.cMbD5QK1f9Kk4TMQuYUvz52-u2EFK-3KGTrtJp0fEI0';
 const BASE_URL = 'https://api.themoviedb.org/3';
+let allMovies = []; 
 
 // Fetch seçenekleri
 function getFetchOptions() {
@@ -62,6 +63,7 @@ const refs = {
   popularityText: document.querySelector('.popularity-text'),
   genreText: document.querySelector('.genre-text'),
   aboutText: document.querySelector('.upcoming-about-text'),
+  addToLibraryBtn: document.querySelector('.upcoming-button'),
 };
 
 // Film verilerini render et

@@ -33,36 +33,8 @@ const options = {
 // Sayfa Yüklendiğinde
 document.addEventListener('DOMContentLoaded', () => {
     loadTrendingMovies();
-    loadMovieOfTheDay();
-});
-
-// Günün Filmini Yükle
-async function loadMovieOfTheDay() {
-    try {
-        const response = await fetch(`${BASE_URL}/trending/movie/day`, options);
-        const data = await response.json();
-        if (data.results && data.results.length > 0) {
-            const movie = data.results[0];
-            updateHeroSection(movie);
-        }
-    } catch (error) {
-        console.error('Günün filmi yüklenirken hata oluştu:', error);
-    }
-}
-
-// Hero Bölümünü Güncelle
-function updateHeroSection(movie) {
-    const backdropPath = movie.backdrop_path;
-    const heroSection = document.querySelector('.hero-section');
-    heroSection.style.backgroundImage = `url(${IMAGE_BASE_URL}original${backdropPath})`;
     
-    featuredMovie.innerHTML = `
-        <h2>${movie.title}</h2>
-        <p>${movie.overview}</p>
-        <div class="movie-rating">Puan: ${movie.vote_average.toFixed(1)}/10</div>
-    `;
-}
-
+});
 // Trend Filmleri Yükle
 async function loadTrendingMovies(page = 1) {
     try {
