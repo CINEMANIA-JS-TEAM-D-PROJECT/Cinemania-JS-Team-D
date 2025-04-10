@@ -1,4 +1,3 @@
-
 // Global değişkenler
 let currentMovies = []; // tüm filmler
 let displayedMovies = 0; // şu ana kadar görüntülenen filmler
@@ -107,57 +106,80 @@ function updateMovieGenres() {
   displayedMovies = 0;
   renderMovies(library, false);
 }
-
+const genreSelect = document.getElementById('genre-select');
 // Filmleri render et
 export function renderMovies(movies, loadMore = false) {
-  const movieContainer = document.getElementById("movie-list");
+  const movieContainer = document.getElementById('movie-list');
+  // Eğer movie-list elementi bulunamadıysa fonksiyondan çık
+  if (!movieContainer) {
+    console.error("'movie-list' ID'li element bulunamadı!");
+    return;
+  }
 
   // Eğer film yoksa mesaj göster
   if (movies.length === 0) {
-    movieContainer.innerHTML = `
-      <div class="no-movies-message">
-      <p>OOPS... We are very sorry! You don’t have any movies at your library.</p>
+    movieContainer.innerHTML = `<div class="message-btn" >
+      <p class ="no-movies-message">OOPS... We are very sorry! You don’t have any movies at your library.</p>
       <button id="go-to-catalog" class="search-btn">Search movie</button>
     </div>
   `;
     // Genre select'i gizle
     if (genreSelect) {
-      genreSelect.style.display = "none";
+      genreSelect.style.display = 'none';
     }
     // Butona tıklanınca catalog sayfasına yönlendir
-    const searchBtn = document.getElementById("go-to-catalog");
+    const searchBtn = document.getElementById('go-to-catalog');
     if (searchBtn) {
-      searchBtn.addEventListener("click", () => {
-        window.location.href = "catalog.html"; // veya sayfanın tam yolu
+      searchBtn.addEventListener('click', () => {
+        window.location.href = 'catalog.html'; // veya sayfanın tam yolu
       });
     }
-    const loadMoreBtn = document.getElementById("load-more");
+    const loadMoreBtn = document.getElementById('load-more');
     if (loadMoreBtn) {
-      loadMoreBtn.style.display = "none";
+      loadMoreBtn.style.display = 'none';
     }
     return;
   }
+const startIndex = loadMore ? displayedMovies : 0;
+const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
+const moviesToShow = movies.slice(startIndex, endIndex);
 
-  // eğer filmler varsa onları render et
-  const startIndex = loadMore ? displayedMovies : 0;
-  const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
-  const moviesToShow = movies.slice(startIndex, endIndex);
+const moviesHTML = moviesToShow
+  .map(movie => {
+    const posterUrl =
+      movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const title = movie.title;
+    const year = movie.release_date
+      ? movie.release_date.slice(0, 4)
+      : 'Yıl yok';
+    const genre = movie.genre || 'Kategori belirtilmemiş';
+    const rating = movie.vote_average || 0; // 0–10 arası puan
 
-  const moviesHTML = moviesToShow
-    .map(
-      (movie) => `
-    <div class="movie-card" data-genre="${movie.genre || "unknown"}">
-      <img src="${
-        movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-      }" alt="${movie.title}" class="movie-poster">
-      <h3 class="movie-title">${movie.title}</h3>
-      <p class="movie-genre">${movie.genre || "Kategori belirtilmemiş"}</p>
+    // ⭐ Yıldızları belirle
+    let starsHTML = '';
 
-      <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
-    </div>
-  `
-    )
-    .join("");
+    if (rating >= 8.5) {
+      starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
+    } else if (rating >= 6.5) {
+      starsHTML = `<img src="/img/4half.png" alt="4 stars" class="star-icon" />`;
+    } else if (rating >= 4) {
+      starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
+    }
+    return `
+      <div class="movie-card" data-genre="${genre}">
+        <img src="${posterUrl}" alt="${title}" class="movie-poster">
+
+        <div class="movie-info">
+          <h3 class="movie-title">${title} (${year})</h3>
+          <div class="movie-rating">${starsHTML}</div>
+          <p class="movie-genre">${genre}</p>
+        </div>
+
+        <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
+      </div>
+    `;
+  })
+  .join('');
 
   if (loadMore) {
     movieContainer.innerHTML += moviesHTML;
@@ -168,26 +190,31 @@ export function renderMovies(movies, loadMore = false) {
   displayedMovies = endIndex;
 
   // Kaldırma butonları
-  const removeButtons = document.querySelectorAll(".remove-btn");
-  removeButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const movieId = button.getAttribute("data-id");
+  const removeButtons = document.querySelectorAll('.remove-btn');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const movieId = button.getAttribute('data-id');
       removeMovie(movieId);
     });
   });
-
+  displayedMovies = endIndex; // Render edilen filmlerin son indeksi
   // Load more butonu görünürlük
-  const loadMoreBtn = document.getElementById("load-more");
+  const loadMoreBtn = document.getElementById('load-more');
 
-  // Eğer kütüphanede 9'dan fazla film varsa buton görünsün, yoksa gizlensin
   if (loadMoreBtn) {
-    if (currentMovies.length > 9) {
-      loadMoreBtn.style.display = "block"; // Eğer 9'dan fazla film varsa buton görünür
+    // Eğer görüntülenen film sayısı (displayedMovies) tüm filmleri kapsıyorsa butonu gizle,
+    // aksi halde göster.
+    if (displayedMovies >= movies.length) {
+      loadMoreBtn.style.display = 'none';
     } else {
-      loadMoreBtn.style.display = "none"; // 9'dan az film varsa buton gizlenir
+      loadMoreBtn.style.display = 'block';
     }
-
-    console.log("currentMovies.length:", currentMovies.length); // Burada kütüphanedeki toplam film sayısını kontrol edebilirsin
+    console.log(
+      'displayedMovies:',
+      displayedMovies,
+      'movies.length:',
+      movies.length
+    );
   }
 }
 
@@ -254,16 +281,17 @@ function loadMoviesFromLibrary() {
 document.addEventListener('DOMContentLoaded', () => {
   const moviePoster = document.getElementById('responsive-poster');
   const screenWidth = window.innerWidth; // Ekran genişliği
-
-
-
-  if (screenWidth <= 480) {
-    moviePoster.src = "img/libraryhero.png";
-  } else if (screenWidth <= 768) {
-    moviePoster.src = "img/libraryhero@2x.png";
-  } else {
-    moviePoster.src = "img/libraryhero@3x.png";
+  // moviePoster null mı kontrol et
+  if (!moviePoster) {
+    console.warn("'responsive-poster' ID'li element bulunamadı!");
+    return; // Element yoksa fonksiyondan çık
   }
-
-
+ 
+  if (screenWidth <= 480) {
+    moviePoster.src = 'img/libraryhero.png';
+  } else if (screenWidth <= 768) {
+    moviePoster.src = 'img/libraryhero@2x.png';
+  } else {
+    moviePoster.src = 'img/libraryhero@3x.png';
+  }
 });
