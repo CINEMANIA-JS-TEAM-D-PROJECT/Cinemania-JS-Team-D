@@ -99,7 +99,7 @@ export async function createMovieInfoMarkup(id) {
         closeMovieInfoModal();
       }
     });
-
+// Buraya kadar ekledim
     backdrop.addEventListener('click', function (event) {
       if (event.target.closest('.modal-window')) {
         return;
