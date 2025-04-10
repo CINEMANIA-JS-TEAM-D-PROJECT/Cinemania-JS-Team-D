@@ -43,6 +43,14 @@ html[data-theme='light'] .modal-window {
     padding: 44px;
     gap: 16px;
   }
+  .modal-window{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 0;
+    padding: auto;
+    overflow: hidden;
+  }
 }
 
 /* @MEDIA DESKTOP */

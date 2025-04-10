@@ -83,5 +83,6 @@ export function openModal(movie) {
 export function closeModal() {
   const modal = document.getElementById('movie-modal');
   modal.classList.remove('show');
+  // updateLibrary(false, true);
 }
 
