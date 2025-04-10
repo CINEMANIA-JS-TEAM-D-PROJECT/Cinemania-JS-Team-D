@@ -150,6 +150,7 @@ async function initUpcomingMovie() {
       const randomIndex = Math.floor(Math.random() * upcomingMovies.length);
       const randomMovie = upcomingMovies[randomIndex];
       renderUpcomingMovie(randomMovie, allGenres);
+      
     } else {
       console.log('Upcoming film bulunamadı.');
     }
