@@ -277,20 +277,4 @@ function loadMoviesFromLibrary() {
   displayedMovies = 0;
   renderMovies(library, false);
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const moviePoster = document.getElementById('responsive-poster');
-  const screenWidth = window.innerWidth; // Ekran genişliği
-  // moviePoster null mı kontrol et
-  if (!moviePoster) {
-    console.warn("'responsive-poster' ID'li element bulunamadı!");
-    return; // Element yoksa fonksiyondan çık
-  }
 
-  if (screenWidth <= 480) {
-    moviePoster.src = 'img/libraryhero.png';
-  } else if (screenWidth <= 768) {
-    moviePoster.src = 'img/libraryhero@2x.png';
-  } else {
-    moviePoster.src = 'img/libraryhero@3x.png';
-  }
-});

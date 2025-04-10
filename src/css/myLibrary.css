@@ -2,9 +2,14 @@
   .movie-list-container {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 15px;
+    column-gap: 32px;
     flex-direction: row;
     flex-basis: 30%;
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-bottom: 40px;
+    margin-top: 24px;
+    
   }
 
   #movie-list {
@@ -12,14 +17,15 @@
     justify-content: space-around;
     gap: 20px;
     margin: 20px auto;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 24px;
     row-gap: 32px;
     flex-direction: row;
-    margin-left: 32px;
+    margin-left: 1px;
     display: flex;
     flex-wrap: wrap;
-    
+    column-gap: 15px;
+    margin-top: 104px;
 
   }
   .movie-poster {
@@ -59,6 +65,7 @@
     display: block;
     margin: 0% auto;
     white-space: nowrap;
+    margin-bottom: 10px;
   }
   #filter-name {
     display: flex;
@@ -83,6 +90,7 @@
     border: 1px solid rgba(255, 255, 255, 1);
     justify-content: start;
     margin-top: 5px;
+    flex-direction: row;
   }
 
   .no-movies-message {
@@ -163,6 +171,8 @@
    font-family: Roboto;
    margin-top: 30px;
    border-radius: 8px;
+   text-align: center;
+   margin-left: 60px;
   }
   .search-btn {
     width: 133px;
@@ -200,15 +210,20 @@
     gap: 10px;
     background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    
+
   }
   .movie-list-container {
-    grid-template-columns: repeat(3, 224px);
         column-gap: 12px;
         row-gap: 10px;
-        padding: 0 15px;
+        padding: 0 20px;
         margin-top: 0;
-        justify-content: center;
-    
+        justify-content: flex-start;
     
   }
   .message-btn {
@@ -222,20 +237,14 @@
     list-style: none;
     justify-content: space-around;
     gap: 20px;
-    margin: 20px auto;
-    align-items: center;
-    margin-bottom: 24px;
-    row-gap: 32px;
-    display: flex;
-    flex-direction: row;
-    margin-left: 32px;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 6px;
-    flex-direction: row;
-    padding-right: 0%;
-    
-  
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    margin-top: 30px;
+
   }
   .movie-rating {
     width: 66px;
@@ -243,8 +252,8 @@
     gap: 4px;
   }
   .movie-poster{
-    width: 100%;              /* Afişi kapsayıcısının genişliğine uyacak şekilde ayarla */
-  height: auto; 
+    width: 224px;
+    height: 325px;
   }
 }
 
@@ -259,13 +268,14 @@
     color: rgba(183, 183, 183, 1);
    background: rgba(28, 28, 28, 1);
    font-family: Roboto;
-font-weight: 500px;
-font-size: 14px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-vertical-align: middle;
-cursor: pointer;
+   font-weight: 500px;
+   font-size: 14px;
+   line-height: 100%;
+    letter-spacing: 0%;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+   margin-left: 72px;
   }
   
   #load-more {
@@ -282,6 +292,11 @@ cursor: pointer;
     background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
     cursor: pointer;
     white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    display: block;
+  margin: 20px auto; /* Yatayda ortalar, dikeyde 20px boşluk verir */
+  
   }
   .no-movies-message {
     width: 280px;
@@ -332,7 +347,6 @@ cursor: pointer;
     display: grid;
     width: 280px;
     height: 406px;
-    
     border-radius: 5px;
     box-sizing: border-box;
     flex-direction: column;
@@ -341,6 +355,9 @@ cursor: pointer;
     margin-top: 24px;
     margin-bottom: 24px;
     row-gap: 24px;
+    column-gap: 12px;
+    margin-left: 54px;
+     grid-template-columns: repeat(1, 1fr);
    
 
   }
