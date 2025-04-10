@@ -37,6 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
       renderMovies(currentMovies, true);
     });
   }
+    // ✅ Modal açmak için film kartına tıklama listener'ı
+    document.addEventListener('click', event => {
+      const card = event.target.closest('.movie-card');
+      if (card) {
+        const movieId = card.querySelector('.remove-btn').getAttribute('data-id');
+        const movie = currentMovies.find(m => m.id == movieId);
+        if (movie) {
+          openModal(movie);
+        }else{return}
+      }
+    });
 });
 
 // API'den türleri çek
@@ -181,9 +192,13 @@ export function renderMovies(movies, loadMore = false) {
     fragment.appendChild(
       document.createRange().createContextualFragment(movieCardHTML)
     );
+ 
   });
   displayedMovies = endIndex;
   movieContainer.appendChild(fragment);
+  
+ 
+ 
 
   // Load More butonunun görünürlüğünü kontrol et
   const loadMoreBtn = document.getElementById('load-more');
@@ -234,7 +249,7 @@ function filterMoviesByGenre(genreId) {
 function saveMovieToLibrary(movie) {
     // Film zaten ekli mi kontrol et
     if (!library.some(m => m.id === movie.id)) {
-      libraryy.push(movie);
+      library.push(movie);
       localStorage.setItem('library', JSON.stringify(library));
 
     }
