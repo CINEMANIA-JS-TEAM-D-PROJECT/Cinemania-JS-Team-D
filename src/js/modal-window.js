@@ -1,16 +1,37 @@
-// modal.js
+modal-window.js
 
-//import { updateLibrary } from './library';
 
-// Modal açma/kapatma işlevleri
-export function openModal(movie) {
+import TmdbApi from './tmdb-api';
+import LocalMovieManager from './local-movie-manager';
+import { updateLibrary } from './library';
+import ModalVideo from 'modal-video';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+const backdrop = document.querySelector('.backdrop');
+const tmdb = new TmdbApi();
+
+export default function openMovieInfoModal(id) {
+  backdrop.classList.remove('is-closed');
+  createMovieInfoMarkup(id);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMovieInfoModal() {
+  backdrop.classList.add('is-closed');
+  backdrop.innerHTML = '';
+  document.body.style.overflow = 'auto';
+  updateLibrary(false, true);
+}
+
+export async function createMovieInfoMarkup(id) {
   try {
-    const modal = document.getElementById('movie-modal');
-    const modalContent = document.getElementById('modal-content');
+    const movie = await tmdb.getMovieDetails(id);
+    const genreNames = movie.genres.map(genre => genre.name).join(' ');
 
-    modalContent.innerHTML = `
-    <div class="modal-window">
-        <button class="modal-btn-close" id="modal-close" type="button">
+    backdrop.innerHTML = `
+      <div class="modal-window">
+        <button class="modal-btn-close" type="button">
           <svg width="30" height="30">   
             <line
               x1="0.0"
@@ -57,7 +78,7 @@ export function openModal(movie) {
             </tr>
             <tr class="modal-film-tab-row">
               <th class="modal-film-tab-header">Genre</th>
-              <td class="modal-film-tab-data">${movie.genreNames}</td>
+              <td class="modal-film-tab-data">${genreNames}</td>
             </tr>
           </table>
           <h3 class="modal-film-desc-about">About</h3>
@@ -68,38 +89,33 @@ export function openModal(movie) {
           </div>
         </div>
       </div>
-  `;
+    `;
 
-    modal.classList.add('show');
+    const closeBtn = document.querySelector('.modal-btn-close');
+    closeBtn.addEventListener('click', closeMovieInfoModal);
 
-    // Kapatma düğmesi
-    document
-      .getElementById('modal-close')
-      .addEventListener('click', closeModal);
-    //Esc tuşuyla çıkış
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
-        closeModal();
+        closeMovieInfoModal();
       }
     });
-    //Modal dışına tıklayınca kapatma
-    modal.addEventListener('click', function (event) {
-      if (event.target.closest('.modal-content')) {
+// Buraya kadar ekledim
+    backdrop.addEventListener('click', function (event) {
+      if (event.target.closest('.modal-window')) {
         return;
       }
-      closeModal();
+      closeMovieInfoModal();
     });
 
-    //const watchTrailerBtn = document.querySelector('.watch-trailer-btn');
-    //watchTrailerBtn.addEventListener('click', watchTrailer(movie.id));
+    const watchTrailerBtn = document.querySelector('.watch-trailer-btn');
+    watchTrailerBtn.addEventListener('click', watchTrailer(movie.id));
 
-    // Kütüphaneye ekleme butonu
     const addLibraryBtn = document.getElementById('library-actions-btn');
-    //updateLibraryButton(movie.id);
+    updateLibraryButton(movie.id);
 
     addLibraryBtn.addEventListener('click', () => {
       toggleLibrary(movie);
-      //   updateLibraryButton(movie.id);
+      updateLibraryButton(movie.id);
     });
   } catch (error) {
     console.error('Error fetching movie details:', error);
@@ -117,29 +133,28 @@ function toggleLibrary(movie) {
 
   if (isInLibrary) {
     lmm.removeMovie(movie.id);
-    // iziToast.info({
-    // title: 'Info',
-    //  message: 'Removed from my library',
-    // backgroundColor: 'red',
-    // messageSize: '13',
-    // closeOnEscape: true,
-    // closeOnClick: true,
-    // });
+    iziToast.info({
+      title: 'Info',
+      message: 'Removed from my library',
+      backgroundColor: 'red',
+      messageSize: '13',
+      closeOnEscape: true,
+      closeOnClick: true,
+    });
   } else {
     lmm.addMovie(movie);
-    // iziToast.success({
-    //  title: 'Success ',
-    // message: 'Added to my library',
-    //  backgroundColor: 'orange',
-    //  messageSize: '13',
-    //  closeOnEscape: true,
-    //  closeOnClick: true,
-    // });
+    iziToast.success({
+      title: 'Success ',
+      message: 'Added to my library',
+      backgroundColor: 'orange',
+      messageSize: '13',
+      closeOnEscape: true,
+      closeOnClick: true,
+    });
   }
 
   updateLibraryButton(movie.id);
 }
-
 
 function updateLibraryButton(movieId) {
   const lmm = new LocalMovieManager('myLibrary');
@@ -153,11 +168,37 @@ function updateLibraryButton(movieId) {
   }
 }
 
+const watchTrailer = async movieId => {
+  const watchTrailerBtn = document.querySelector('.watch-trailer-btn');
 
+  try {
+    const videos = await tmdb.getMovieVideos(movieId);
+    const trailer = videos.find(video => video.type === 'Trailer');
 
-export function closeModal() {
-  const modal = document.getElementById('movie-modal');
-  modal.classList.remove('show');
-  document.body.style.overflow = 'auto';
-  // updateLibrary(false, true);
-}
+    if (trailer) {
+      watchTrailerBtn.setAttribute('data-video-id', trailer.key);
+      if (!watchTrailerBtn.dataset.modalInitialized) {
+        new ModalVideo('.watch-trailer-btn', {
+          youtube: {
+            autoplay: 1,
+            rel: 0,
+            iv_load_policy: 3,
+          },
+        });
+      }
+    } else {
+      watchTrailerBtn.addEventListener('click', () => {
+        iziToast.info({
+          title: 'Sorry',
+          message: 'No trailer available for this movie',
+          backgroundColor: 'red',
+          messageSize: '13',
+          closeOnEscape: true,
+          closeOnClick: true,
+        });
+      });
+    }
+  } catch (error) {
+    console.error('Failed to load movie videos:', error);
+  }
+};

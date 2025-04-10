@@ -225,7 +225,7 @@ function saveMovieToLibrary(movie) {
     if (!library.some(m => m.id === movie.id)) {
       libraryy.push(movie);
       localStorage.setItem('library', JSON.stringify(libraryy));
-      
+
     }
   }
 
