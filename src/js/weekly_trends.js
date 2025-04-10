@@ -1,4 +1,4 @@
-// import modal from './modal.js';
+import { openModal, closeModal } from './modal.js';
 const options = {
   method: 'GET',
   headers: {
@@ -85,6 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
          `;
         cardContainer.appendChild(card);
+
+        card.addEventListener('click', () => {
+          openModal(movie);
+        });
+
+
       });
     })
     .catch(err => {
