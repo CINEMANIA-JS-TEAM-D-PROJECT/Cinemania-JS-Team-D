@@ -1,3 +1,6 @@
+import { openModal, closeModal } from './modal.js';
+
+
 // API ayarları (Token: daha önce gönderdiğiniz token kullanılıyor)
 const API_KEY ='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzYxMTQwZGRhOGZlM2QwOTRlZTJjNjNmMDVhNzY4NCIsIm5iZiI6MTc0MzcxMzIxNS4wNTQwMDAxLCJzdWIiOiI2N2VlZjNiZmIzZTAzNTI4NmNkOTE5NmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.cMbD5QK1f9Kk4TMQuYUvz52-u2EFK-3KGTrtJp0fEI0';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -92,6 +95,8 @@ function renderUpcomingMovie(movie, allGenres) {
 
   // Butonu ekleyelim (örneğin, film başlığının altına ekleyebiliriz)
   refs.movieTitle.appendChild(addButton);
+ 
+
 }
 
 // 5) Upcoming film verilerini çekip, aralarından rastgele bir tanesini seçerek render et
@@ -110,6 +115,7 @@ async function initUpcomingMovie() {
       const randomIndex = Math.floor(Math.random() * upcomingMovies.length);
       const randomMovie = upcomingMovies[randomIndex];
       renderUpcomingMovie(randomMovie, allGenres);
+      
     } else {
       console.log('Upcoming film bulunamadı.');
     }
@@ -117,6 +123,8 @@ async function initUpcomingMovie() {
     console.error('Hata:', error);
   }
 }
+
+
 
 // Başlatma
 initUpcomingMovie();
