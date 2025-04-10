@@ -103,41 +103,36 @@ function updateMovieGenres() {
     }
     return movie;
   });
-
-  // Güncellenmiş kütüphaneyi kaydet
-  localStorage.setItem('library', JSON.stringify(library));
-
-  // Güncel verileri göster
+// Güncel verileri göster
   currentMovies = library;
   displayedMovies = 0;
   renderMovies(library, false);
+  // Güncellenmiş kütüphaneyi kaydet
+  localStorage.setItem('library', JSON.stringify(library));
+
+  
 }
 const genreSelect = document.getElementById('genre-select');
-// Filmleri render et
 export function renderMovies(movies, loadMore = false) {
   const movieContainer = document.getElementById('movie-list');
-  // Eğer movie-list elementi bulunamadıysa fonksiyondan çık
   if (!movieContainer) {
     console.error("'movie-list' ID'li element bulunamadı!");
     return;
   }
 
-  // Eğer film yoksa mesaj göster
   if (movies.length === 0) {
     movieContainer.innerHTML = `<div class="message-btn" >
       <p class ="no-movies-message">OOPS... We are very sorry! You don’t have any movies at your library.</p>
       <button id="go-to-catalog" class="search-btn">Search movie</button>
     </div>
   `;
-    // Genre select'i gizle
     if (genreSelect) {
       genreSelect.style.display = 'none';
     }
-    // Butona tıklanınca catalog sayfasına yönlendir
     const searchBtn = document.getElementById('go-to-catalog');
     if (searchBtn) {
       searchBtn.addEventListener('click', () => {
-        window.location.href = 'catalog.html'; // veya sayfanın tam yolu
+        window.location.href = 'catalog.html';
       });
     }
     const loadMoreBtn = document.getElementById('load-more');
@@ -176,26 +171,22 @@ export function renderMovies(movies, loadMore = false) {
       return `
       <div class="movie-card" id="card" data-genre="${genre}">
         <img src="${posterUrl}" alt="${title}" class="movie-poster">
-
         <div class="movie-info">
           <h3 class="movie-title">${title} (${year})</h3>
           <div class="movie-rating">${starsHTML}</div>
           <p class="movie-genre">${genre}</p>
         </div>
 
-        <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
+        <button class="remove-btn" data-id="${id}">Kaldır</button>
       </div>
     `;
     })
     .join('');
 
   if (loadMore) {
-    movieContainer.innerHTML += moviesHTML;
-  } else {
-    movieContainer.innerHTML = moviesHTML;
+    displayedMovies = endIndex;
+  } 
   }
-
-  displayedMovies = endIndex;
 
   // Kaldırma butonları
   const removeButtons = document.querySelectorAll('.remove-btn');
@@ -225,7 +216,7 @@ export function renderMovies(movies, loadMore = false) {
     );
   }
   
-}
+
 
 // Filmleri türe göre filtrele
 function filterMoviesByGenre(genreId) {
