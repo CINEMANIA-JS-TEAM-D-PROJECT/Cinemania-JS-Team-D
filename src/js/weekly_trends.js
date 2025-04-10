@@ -8,27 +8,47 @@ const options = {
   },
 };
 
+const genreMap = {
+  28: 'Aksiyon',
+  12: 'Macera',
+  16: 'Animasyon',
+  35: 'Komedi',
+  80: 'Suç',
+  99: 'Belgesel',
+  18: 'Drama',
+  10751: 'Aile',
+  14: 'Fantastik',
+  36: 'Tarih',
+  27: 'Korku',
+  10402: 'Müzik',
+  9648: 'Gizem',
+  10749: 'Romantik',
+  878: 'Bilim Kurgu',
+  10770: 'TV Film',
+  53: 'Gerilim',
+  10752: 'Savaş',
+  37: 'Vahşi Batı',
+};
+
+function getGenreNames(genreIds) {
+  return genreIds
+    .map(id => genreMap[id])
+    .filter(name => name)
+    .slice(0, 2); // En fazla 2 tür göster
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const theme = localStorage.getItem('theme'); // 'dark' veya 'light'
   const titleElement = document.querySelector('.title');
-
-  if (theme === 'dark') {
-    titleElement.style.color = 'black';
-  } else if (theme === 'light') {
-    titleElement.style.color = 'white';
-  }
-  return;
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   const cardContainer = document.getElementById('cards');
   const loader = document.getElementById('loader-weekly');
+
+  titleElement.style.color = theme === 'dark' ? 'black' : 'white';
 
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
     .then(res => res.json())
     .then(data => {
       const movies = data.results.slice(0, 3);
-
       cardContainer.innerHTML = '';
       loader.style.display = 'none';
 
@@ -38,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : 'https://via.placeholder.com/500x750?text=No+Image';
 
         const title = movie.title || movie.name || 'Untitled';
+        const genres = getGenreNames(movie.genre_ids).join(', ');
         const releaseYear = (
           movie.release_date ||
           movie.first_air_date ||
@@ -67,19 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.backgroundImage = `url(${imageUrl})`;
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
-        card.style.height = '574px';
+        card.style.display = 'none';
         card.style.display = 'flex';
         card.style.alignItems = 'flex-end';
-        card.style.padding = '10px';
         card.style.borderRadius = '10px';
         card.style.position = 'relative';
         card.style.overflow = 'hidden';
-        card.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+        card.style.boxShadow =
+          ' linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%)';
 
         card.innerHTML = `
           <div class="card-content">
              <h3 >${title}</h2>
-             <p > ${releaseYear}</p>
+             <p >${genres} | ${releaseYear}</p>
            </div>
            <span class="star"> ${stars}</span>
 
@@ -89,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
           openModal(movie);
         });
-
-
       });
     })
     .catch(err => {
