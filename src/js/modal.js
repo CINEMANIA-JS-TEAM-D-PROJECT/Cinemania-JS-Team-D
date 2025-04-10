@@ -64,7 +64,7 @@ export function openModal(movie) {
           <p class="modal-film-desc">${movie.overview}</p>
           <div class="modal-film-btns">
             <button class="watch-trailer-btn"}>Watch trailer</button> 
-            <button id="library-actions-btn" type="submit"></button>
+            <button id="library-actions-btn" type="submit">Add to my library</button>
           </div>
         </div>
       </div>
@@ -94,62 +94,49 @@ export function openModal(movie) {
     //watchTrailerBtn.addEventListener('click', watchTrailer(movie.id));
 
     // Kütüphaneye ekleme butonu
-    const addLibraryBtn = document.getElementById('library-actions-btn');
-    //updateLibraryButton(movie.id);
+    
+    setupLibraryButton(movie);
 
     addLibraryBtn.addEventListener('click', () => {
       toggleLibrary(movie);
-      //   updateLibraryButton(movie.id);
+       setupLibraryButton(movie);
     });
   } catch (error) {
     console.error('Error fetching movie details:', error);
   }
 }
 
+
+// LocalStorage'dan film ekle/çıkar
 function toggleLibrary(movie) {
-  const lmm = new LocalMovieManager('myLibrary');
-  const isInLibrary = lmm.getMovies().some(m => m.id === movie.id);
+  const libraryKey = 'library';
+  const storedLibrary = JSON.parse(localStorage.getItem(libraryKey)) || [];
+  const index = storedLibrary.findIndex((item) => item.id === movie.id);
+  const button = document.querySelector('#library-actions-btn');
 
-  if (!movie.id) {
-    console.error('Movie ID is undefined:', movie);
-    return;
-  }
-
-  if (isInLibrary) {
-    lmm.removeMovie(movie.id);
-    // iziToast.info({
-    // title: 'Info',
-    //  message: 'Removed from my library',
-    // backgroundColor: 'red',
-    // messageSize: '13',
-    // closeOnEscape: true,
-    // closeOnClick: true,
-    // });
+  if (index !== -1) {
+    storedLibrary.splice(index, 1);
+    localStorage.setItem(libraryKey, JSON.stringify(storedLibrary));
+    
+    if (button) button.textContent = 'Add to my library';
   } else {
-    lmm.addMovie(movie);
-    // iziToast.success({
-    //  title: 'Success ',
-    // message: 'Added to my library',
-    //  backgroundColor: 'orange',
-    //  messageSize: '13',
-    //  closeOnEscape: true,
-    //  closeOnClick: true,
-    // });
+    storedLibrary.push(movie);
+    localStorage.setItem(libraryKey, JSON.stringify(storedLibrary));
+    
+    if (button) button.textContent = 'Remove from my library';
   }
-
-  updateLibraryButton(movie.id);
 }
 
+// Buton durumunu ayarla ve click eventi bağla
+function setupLibraryButton(movie) {
+  const button = document.querySelector('#library-actions-btn');
+  const libraryKey = 'library';
+  const storedLibrary = JSON.parse(localStorage.getItem(libraryKey)) || [];
+  const isAlreadyInLibrary = storedLibrary.some((item) => item.id === movie.id);
 
-function updateLibraryButton(movieId) {
-  const lmm = new LocalMovieManager('myLibrary');
-  const isInLibrary = lmm.getMovies().some(m => m.id === movieId);
-  const libraryBtn = document.getElementById('library-actions-btn');
-
-  if (isInLibrary) {
-    libraryBtn.textContent = 'Remove from my library';
-  } else {
-    libraryBtn.textContent = 'Add to my library';
+  if (button) {
+    button.textContent = isAlreadyInLibrary ? 'Remove from my library' : 'Add to my library';
+    button.addEventListener('click', () => toggleLibrary(movie));
   }
 }
 

@@ -115,12 +115,12 @@ function toggleLibrary(movie) {
   if (index !== -1) {
     storedLibrary.splice(index, 1);
     localStorage.setItem(libraryKey, JSON.stringify(storedLibrary));
-    alert('Film kütüphaneden kaldırıldı.');
+    
     if (button) button.textContent = 'Add to my library';
   } else {
     storedLibrary.push(movie);
     localStorage.setItem(libraryKey, JSON.stringify(storedLibrary));
-    alert('Film kütüphaneye eklendi.');
+    
     if (button) button.textContent = 'Remove from my library';
   }
 }
