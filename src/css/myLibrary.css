@@ -20,7 +20,7 @@
     
 
   }
-  .movies-grid {
+  .movies-grid-library {
     display: grid;
     grid-template-columns: repeat(3, 395px);
     width: 394px;
