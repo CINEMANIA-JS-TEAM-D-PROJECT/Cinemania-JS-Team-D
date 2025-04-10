@@ -95,7 +95,7 @@ export function openModal(movie) {
 
     // Kütüphaneye ekleme butonu
     const addLibraryBtn = document.getElementById('library-actions-btn');
-    // updateLibraryButton(movie.id);
+    //updateLibraryButton(movie.id);
 
     addLibraryBtn.addEventListener('click', () => {
       toggleLibrary(movie);
