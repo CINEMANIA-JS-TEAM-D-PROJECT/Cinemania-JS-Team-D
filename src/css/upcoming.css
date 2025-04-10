@@ -59,7 +59,7 @@ body {
   outline: none;
 }
 .img-box {
-  background-image: url(../img/img-mobil.png);
+  background-image: url(../img/no-poster-found-img.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -134,8 +134,8 @@ body {
   gap: 4px;
   color: var(--secondary-text);
 }
-.vote-span,
-.vote-span-votes {
+.vote-average,
+.vote-count {
   display: block;
   background-color: var(--white);
   color: var(--background);
@@ -226,7 +226,7 @@ body {
   }
 
   .img-box {
-    background-image: url(../img/img-tablet.png);
+    
     width: 704px;
     height: 400px;
   }
@@ -255,8 +255,7 @@ body {
     padding-bottom: 12px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    
   }
 }
 @media screen and (min-width: 1280px) {
@@ -275,7 +274,7 @@ body {
   }
 
   .img-box {
-    background-image: url(../img/img-desktop.jpg);
+    
     width: 805px;
     height: 458px;
   }
