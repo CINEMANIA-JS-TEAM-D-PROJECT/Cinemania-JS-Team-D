@@ -15,20 +15,12 @@
     align-items: center;
     margin-bottom: 24px;
     row-gap: 32px;
-    display: flex;
     flex-direction: row;
+    margin-left: 32px;
+    display: flex;
+    flex-wrap: wrap;
     
 
-  }
-  .movies-grid-library {
-    display: grid;
-    grid-template-columns: repeat(3, 395px);
-    width: 394px;
-    height: 574px;
-    top: 896px;
-    left: 443px;
-    rotate: -0 deg;
-    border-radius: 5px;
   }
   .movie-poster {
     width: 72px;
@@ -73,6 +65,7 @@
     justify-content: start; /* Ortalamak için */
     margin-bottom: 20px;
     padding-left: 32px;
+    margin-top: 20px;
   }
 
   #genre-filter {
@@ -138,11 +131,14 @@
 
     margin-right: 5px;
   }
-
-
-  
 }
+/*tablet*/
 @media screen and (max-width: 1279px) {
+  .mylibrary-background {
+    box-sizing: border-box;
+    display: block;
+    
+  }
   .no-movies-message {
     width: 438px;
     height: 104px;
@@ -165,6 +161,8 @@
     color: rgba(183, 183, 183, 1);
    background: rgba(28, 28, 28, 1);
    font-family: Roboto;
+   margin-top: 30px;
+   border-radius: 8px;
   }
   .search-btn {
     width: 133px;
@@ -184,8 +182,6 @@
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
-
-    cursor: pointer;
     cursor: pointer;
     display: block;
     margin: 0 auto;
@@ -206,10 +202,13 @@
     white-space: nowrap;
   }
   .movie-list-container {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 15px;
-    flex-direction: row;
+    grid-template-columns: repeat(3, 224px);
+        column-gap: 12px;
+        row-gap: 10px;
+        padding: 0 15px;
+        margin-top: 0;
+        justify-content: center;
+    
     
   }
   .message-btn {
@@ -229,8 +228,14 @@
     row-gap: 32px;
     display: flex;
     flex-direction: row;
+    margin-left: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 6px;
+    flex-direction: row;
+    padding-right: 0%;
     
-    
+  
   }
   .movie-rating {
     width: 66px;
@@ -260,9 +265,9 @@ line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
 vertical-align: middle;
-
-
+cursor: pointer;
   }
+  
   #load-more {
     width: 106px;
     height: 38px;

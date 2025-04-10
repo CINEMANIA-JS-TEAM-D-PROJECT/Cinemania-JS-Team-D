@@ -1,9 +1,3 @@
-//movieCard.addEventListener('click', () => {
-//   openModal(movie);
-//});
-
-import { openModal, closeModal } from './modal.js';
-
 // Global değişkenler
 let currentMovies = []; // tüm filmler
 let displayedMovies = 0; // şu ana kadar görüntülenen filmler
@@ -103,17 +97,15 @@ function updateMovieGenres() {
     }
     return movie;
   });
-// Güncel verileri göster
+  // Güncel verileri göster
   currentMovies = library;
   displayedMovies = 0;
   renderMovies(library, false);
   // Güncellenmiş kütüphaneyi kaydet
   localStorage.setItem('library', JSON.stringify(library));
-
-  
 }
 const genreSelect = document.getElementById('genre-select');
-export function renderMovies(movies, loadMore = false) {
+export function renderMovies(movies, loadMore = false) {  
   const movieContainer = document.getElementById('movie-list');
   if (!movieContainer) {
     console.error("'movie-list' ID'li element bulunamadı!");
@@ -141,35 +133,39 @@ export function renderMovies(movies, loadMore = false) {
     }
     return;
   }
+
   const startIndex = loadMore ? displayedMovies : 0;
   const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
   const moviesToShow = movies.slice(startIndex, endIndex);
 
-  const moviesHTML = moviesToShow
-    .map(movie => {
-      const posterUrl =
-        movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-      const title = movie.title;
-      const year = movie.release_date
-        ? movie.release_date.slice(0, 4)
-        : 'Yıl yok';
-      const genre = movie.genre || 'Kategori belirtilmemiş';
-      const rating = movie.vote_average || 0; // 0–10 arası puan
-     const moviesGrid = document.getElementById("movie-list")
+  // Film varsa ekle
+  if (!loadMore) {
+    movieContainer.innerHTML = ''; // önce temizle (loadMore değilse)
+  }
+  const fragment = document.createDocumentFragment();
 
-      // ⭐ Yıldızları belirle
-      let starsHTML = '';
+  moviesToShow.forEach(movie => {
+    const posterUrl =
+      movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const title = movie.title;
+    const year = movie.release_date
+      ? movie.release_date.slice(0, 4)
+      : 'Yıl yok';
+    const genre = movie.genre || 'Kategori belirtilmemiş';
+    const rating = movie.vote_average || 0;
+    const id = movie.id;
 
-      if (rating >= 8.5) {
-        starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
-      } else if (rating >= 6.5) {
-        starsHTML = `<img src="/img/4half.png" alt="4 stars" class="star-icon" />`;
-      } else if (rating >= 4) {
-        starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
-      }
-     
-      return `
-      <div class="movie-card" id="card" data-genre="${genre}">
+    let starsHTML = '';
+    if (rating >= 8.5) {
+      starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
+    } else if (rating >= 6.5) {
+      starsHTML = `<img src="/img/4half.png" alt="4.5 stars" class="star-icon" />`;
+    } else if (rating >= 4) {
+      starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
+    }
+
+    const movieCardHTML = `
+      <div class="movie-card" data-genre="${genre}">
         <img src="${posterUrl}" alt="${title}" class="movie-poster">
         <div class="movie-info">
           <h3 class="movie-title">${title} (${year})</h3>
@@ -180,43 +176,33 @@ export function renderMovies(movies, loadMore = false) {
         <button class="remove-btn" data-id="${id}">Kaldır</button>
       </div>
     `;
-    })
-    .join('');
-
-  if (loadMore) {
-    displayedMovies = endIndex;
-  } 
-  }
-
-  // Kaldırma butonları
-  const removeButtons = document.querySelectorAll('.remove-btn');
-  removeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const movieId = button.getAttribute('data-id');
-      removeMovie(movieId);
-    });
+    fragment.appendChild(
+      document.createRange().createContextualFragment(movieCardHTML)
+    );
   });
-  displayedMovies = endIndex; // Render edilen filmlerin son indeksi
-  // Load more butonu görünürlük
-  const loadMoreBtn = document.getElementById('load-more');
+  displayedMovies = endIndex;
+  movieContainer.appendChild(fragment);
 
+  // Load More butonunun görünürlüğünü kontrol et
+  const loadMoreBtn = document.getElementById('load-more');
   if (loadMoreBtn) {
-    // Eğer görüntülenen film sayısı (displayedMovies) tüm filmleri kapsıyorsa butonu gizle,
-    // aksi halde göster.
     if (displayedMovies >= movies.length) {
       loadMoreBtn.style.display = 'none';
     } else {
       loadMoreBtn.style.display = 'block';
     }
-    console.log(
-      'displayedMovies:',
-      displayedMovies,
-      'movies.length:',
-      movies.length
-    );
   }
   
+}
 
+// Kaldırma butonları
+const removeButtons = document.querySelectorAll('.remove-btn');
+removeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const movieId = button.getAttribute('data-id');
+    removeMovie(movieId);
+  });
+});
 
 // Filmleri türe göre filtrele
 function filterMoviesByGenre(genreId) {
@@ -244,14 +230,14 @@ function filterMoviesByGenre(genreId) {
 
 // Filme kütüphaneye kaydet
 function saveMovieToLibrary(movie) {
-  let library = JSON.parse(localStorage.getItem('library')) || [];
+    // Film zaten ekli mi kontrol et
+    if (!library.some(m => m.id === movie.id)) {
+      libraryy.push(movie);
+      localStorage.setItem('library', JSON.stringify(library));
 
-  // Film zaten ekli mi kontrol et
-  if (!library.some(m => m.id === movie.id)) {
-    library.push(movie);
-    localStorage.setItem('library', JSON.stringify(library));
+    }
   }
-}
+
 
 // Filmi kütüphaneden kaldır
 function removeMovie(movieId) {
@@ -261,11 +247,7 @@ function removeMovie(movieId) {
 
   // Güncel listeyi göster
   currentMovies = library;
-  // Eğer Load More butonu varsa ve 9'dan fazla film varsa, buton görünür olmalı
-  const loadMoreBtn = document.getElementById('load-more');
-  if (loadMoreBtn && library.length > 9) {
-    loadMoreBtn.style.display = 'block';
-  }
+  
 
   // Film silindikten sonra güncellenmiş listeyi render et
   renderMovies(library, false);
