@@ -1,6 +1,3 @@
-import { openModal, closeModal } from './modal.js';
-
-
 // API ayarları (Token: daha önce gönderdiğiniz token kullanılıyor)
 const API_KEY ='Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YzYxMTQwZGRhOGZlM2QwOTRlZTJjNjNmMDVhNzY4NCIsIm5iZiI6MTc0MzcxMzIxNS4wNTQwMDAxLCJzdWIiOiI2N2VlZjNiZmIzZTAzNTI4NmNkOTE5NmMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.cMbD5QK1f9Kk4TMQuYUvz52-u2EFK-3KGTrtJp0fEI0';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -94,7 +91,7 @@ function renderUpcomingMovie(movie, allGenres) {
   addButton.dataset.movieId = movie.id; // Film ID'sini butona kaydediyoruz
 
   // Butonu ekleyelim (örneğin, film başlığının altına ekleyebiliriz)
-  refs.movieTitle.appendChild(addButton);
+  refs.aboutText.appendChild(addButton);
  
 
 }

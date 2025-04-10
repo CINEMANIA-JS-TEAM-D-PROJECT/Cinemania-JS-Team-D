@@ -1,3 +1,9 @@
+//movieCard.addEventListener('click', () => {
+//   openModal(movie);
+//});
+
+import { openModal, closeModal } from './modal.js';
+
 // Global değişkenler
 let currentMovies = []; // tüm filmler
 let displayedMovies = 0; // şu ana kadar görüntülenen filmler
@@ -140,33 +146,35 @@ export function renderMovies(movies, loadMore = false) {
     }
     return;
   }
-const startIndex = loadMore ? displayedMovies : 0;
-const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
-const moviesToShow = movies.slice(startIndex, endIndex);
+  const startIndex = loadMore ? displayedMovies : 0;
+  const endIndex = Math.min(startIndex + moviesPerPage, movies.length);
+  const moviesToShow = movies.slice(startIndex, endIndex);
 
-const moviesHTML = moviesToShow
-  .map(movie => {
-    const posterUrl =
-      movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    const title = movie.title;
-    const year = movie.release_date
-      ? movie.release_date.slice(0, 4)
-      : 'Yıl yok';
-    const genre = movie.genre || 'Kategori belirtilmemiş';
-    const rating = movie.vote_average || 0; // 0–10 arası puan
+  const moviesHTML = moviesToShow
+    .map(movie => {
+      const posterUrl =
+        movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      const title = movie.title;
+      const year = movie.release_date
+        ? movie.release_date.slice(0, 4)
+        : 'Yıl yok';
+      const genre = movie.genre || 'Kategori belirtilmemiş';
+      const rating = movie.vote_average || 0; // 0–10 arası puan
+     const moviesGrid = document.getElementById("movie-list")
 
-    // ⭐ Yıldızları belirle
-    let starsHTML = '';
+      // ⭐ Yıldızları belirle
+      let starsHTML = '';
 
-    if (rating >= 8.5) {
-      starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
-    } else if (rating >= 6.5) {
-      starsHTML = `<img src="/img/4half.png" alt="4 stars" class="star-icon" />`;
-    } else if (rating >= 4) {
-      starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
-    }
-    return `
-      <div class="movie-card" data-genre="${genre}">
+      if (rating >= 8.5) {
+        starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
+      } else if (rating >= 6.5) {
+        starsHTML = `<img src="/img/4half.png" alt="4 stars" class="star-icon" />`;
+      } else if (rating >= 4) {
+        starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
+      }
+     
+      return `
+      <div class="movie-card" id="card" data-genre="${genre}">
         <img src="${posterUrl}" alt="${title}" class="movie-poster">
 
         <div class="movie-info">
@@ -178,8 +186,8 @@ const moviesHTML = moviesToShow
         <button class="remove-btn" data-id="${movie.id}">Kaldır</button>
       </div>
     `;
-  })
-  .join('');
+    })
+    .join('');
 
   if (loadMore) {
     movieContainer.innerHTML += moviesHTML;
@@ -216,6 +224,7 @@ const moviesHTML = moviesToShow
       movies.length
     );
   }
+  
 }
 
 // Filmleri türe göre filtrele
@@ -255,16 +264,16 @@ function saveMovieToLibrary(movie) {
 
 // Filmi kütüphaneden kaldır
 function removeMovie(movieId) {
-  let library = JSON.parse(localStorage.getItem("library")) || [];
-  library = library.filter((movie) => movie.id != movieId);
-  localStorage.setItem("library", JSON.stringify(library));
+  let library = JSON.parse(localStorage.getItem('library')) || [];
+  library = library.filter(movie => movie.id != movieId);
+  localStorage.setItem('library', JSON.stringify(library));
 
   // Güncel listeyi göster
   currentMovies = library;
   // Eğer Load More butonu varsa ve 9'dan fazla film varsa, buton görünür olmalı
-  const loadMoreBtn = document.getElementById("load-more");
+  const loadMoreBtn = document.getElementById('load-more');
   if (loadMoreBtn && library.length > 9) {
-    loadMoreBtn.style.display = "block";
+    loadMoreBtn.style.display = 'block';
   }
 
   // Film silindikten sonra güncellenmiş listeyi render et
@@ -286,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn("'responsive-poster' ID'li element bulunamadı!");
     return; // Element yoksa fonksiyondan çık
   }
- 
+
   if (screenWidth <= 480) {
     moviePoster.src = 'img/libraryhero.png';
   } else if (screenWidth <= 768) {
