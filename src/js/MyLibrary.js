@@ -105,7 +105,7 @@ function updateMovieGenres() {
   localStorage.setItem('library', JSON.stringify(library));
 }
 const genreSelect = document.getElementById('genre-select');
-export function renderMovies(movies, loadMore = false) {
+export function renderMovies(movies, loadMore = false) {  
   const movieContainer = document.getElementById('movie-list');
   if (!movieContainer) {
     console.error("'movie-list' ID'li element bulunamadı!");
@@ -143,6 +143,7 @@ export function renderMovies(movies, loadMore = false) {
     movieContainer.innerHTML = ''; // önce temizle (loadMore değilse)
   }
   const fragment = document.createDocumentFragment();
+
   moviesToShow.forEach(movie => {
     const posterUrl =
       movie.poster || `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -181,9 +182,17 @@ export function renderMovies(movies, loadMore = false) {
   });
   displayedMovies = endIndex;
   movieContainer.appendChild(fragment);
-  if (loadMore) {
-    displayedMovies = endIndex;
+
+  // Load More butonunun görünürlüğünü kontrol et
+  const loadMoreBtn = document.getElementById('load-more');
+  if (loadMoreBtn) {
+    if (displayedMovies >= movies.length) {
+      loadMoreBtn.style.display = 'none';
+    } else {
+      loadMoreBtn.style.display = 'block';
+    }
   }
+  
 }
 
 // Kaldırma butonları
@@ -224,7 +233,7 @@ function saveMovieToLibrary(movie) {
     // Film zaten ekli mi kontrol et
     if (!library.some(m => m.id === movie.id)) {
       libraryy.push(movie);
-      localStorage.setItem('library', JSON.stringify(libraryy));
+      localStorage.setItem('library', JSON.stringify(library));
 
     }
   }
@@ -238,13 +247,7 @@ function removeMovie(movieId) {
 
   // Güncel listeyi göster
   currentMovies = library;
-  // Eğer Load More butonu varsa ve 9'dan fazla film varsa, buton görünür olmalı
-  const loadMoreBtn = document.getElementById('load-more');
-  if (loadMoreBtn && library.length > 9) {
-    loadMoreBtn.style.display = 'block';
-  } else {
-    loadMoreBtn.style.display = 'none';
-  }
+  
 
   // Film silindikten sonra güncellenmiş listeyi render et
   renderMovies(library, false);
