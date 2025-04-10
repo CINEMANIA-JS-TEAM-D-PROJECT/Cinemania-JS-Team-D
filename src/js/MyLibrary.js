@@ -1,8 +1,4 @@
-//movieCard.addEventListener('click', () => {
-//   openModal(movie);
-//});
-
-import { openModal, closeModal } from './modal.js';
+import { openModal } from './modal.js';
 
 // Global değişkenler
 let currentMovies = []; // tüm filmler
