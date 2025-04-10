@@ -1,27 +1,5 @@
 Modal kaplama
 
-
-.modal-window {
-  display: flex;
-  z-index: 2;
-  flex-direction: column;
-  position: absolute;
-  pointer-events: yes;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  max-height: 94vh;
-  overflow-y: auto;
-  padding: 52px 16px;
-  /* background-color: var(--black-color); */
-  border-radius: 16px;
-  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-}
-
-
-
-
 /* Modal görünür olduğunda */
 .modal.show {
   display: flex;

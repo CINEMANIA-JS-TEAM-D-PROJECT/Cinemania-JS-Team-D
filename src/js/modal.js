@@ -7,7 +7,7 @@ export function openModal(movie) {
 
   modalContent.innerHTML = `
     <div class="modal-window">
-        <button class="modal-close" id="modal-close" type="button">
+        <button class="modal-btn-close" id="modal-close" type="button">
           <svg width="30" height="30">   
             <line
               x1="0.0"
