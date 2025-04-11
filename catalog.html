@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/Cinemania-JS-Team-D/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinemania Team-D</title>
-    <script type="module" crossorigin src="/Cinemania-JS-Team-D/index.js"></script>
+    <script type="module" crossorigin src="/Cinemania-JS-Team-D/catalog.js"></script>
     <link rel="modulepreload" crossorigin href="/Cinemania-JS-Team-D/assets/main-CIQFArmN.js">
     <link rel="stylesheet" crossorigin href="/Cinemania-JS-Team-D/assets/main-Bil-z9zG.css">
   </head>
@@ -105,110 +105,115 @@
 </div> -->
 
       </section>
-      <section>
-        <div class="container-weekly">
-  <div class="container-weekly-trends">
-    <h1 class="weekly-title">WEEKLY TRENDS</h1>
-    <a href="./catalog.html" id="seeall" class="seeall">See all</a>
-  </div>
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-    style="position: absolute; width: 0; height: 0; overflow: hidden">
-    <defs>
-      <linearGradient id="star-gradient" gradientTransform="rotate(45)">
-        <stop offset="0%" stop-color="#f87719" />
-        <stop offset="100%" stop-color="#f89f19" />
-      </linearGradient>
-      <symbol id="icon-star" viewBox="0 0 32 32">
-        <path
-          d="M24.626 29.999a.999.999 0 0 1-.587-.188l-8.038-5.828-8.038 5.828a.997.997 0 0 1-1.18-.005 1.003 1.003 0 0 1-.354-1.126l3.135-9.286-8.125-5.572a.999.999 0 0 1 .563-1.825h10.024l3.025-9.309a.996.996 0 0 1 .951-.691 1.002 1.002 0 0 1 .951.691l3.025 9.313h10.024a1.001 1.001 0 0 1 .566 1.825l-8.128 5.569 3.133 9.283a1 1 0 0 1-.945 1.32z"
-          fill="url(#star-gradient)" stroke="url(#star-gradient)" stroke-width="1" />
-      </symbol>
-      <symbol id="icon-star-outline" viewBox="0 0 32 32">
-        <path stroke-linejoin="round" stroke-width="1.778"
-          d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z" fill="none"
-          stroke="url(#star-gradient)" stroke-width="2" />
-      </symbol>
-      <symbol id="icon-star-half" viewBox="0 0 32 32">
-        <path stroke-linejoin="round" stroke-width="1.778"
-          d="M30 13H19.25L16 3l-3.25 10H2l8.75 6-3.375 10L16 22.75 24.625 29 21.25 19 30 13z" fill="none"
-          stroke="url(#star-gradient)" stroke-width="2" />
-        <path d="M16 3v19.75L7.375 29l3.375-10L2 13h10.75L16 3z" fill="url(#star-gradient)" />
-      </symbol>
-    </defs>
-  </svg>
- 
-  <div id="weekly-cards"></div>
-  
-  <div id="loader-weekly" class="loader-weekly"></div>
-</div>
-      </section>
-      <section>
-        <div class="upcoming-section">
-  <div class="upcoming-section-wrapper">
-    <h2 class="upcoming-header">UPCOMING THIS MONTH</h2>
-    <div class="upcoming-wrapper">
-      <div class="img-box-upcoming"></div>
-      <div class="upcoming-section-2">
-        <h2 class="upcoming-header-2">NO DATA FOUND</h2>
-        <div class="lists-upcoming">
-          <ul class="upcoming-section-2-list">
-            <li class="upcoming-section-list-1">
-              <ul class="upcoming-section-list-1">
-                <li class="upcoming-section-list-1-items">
-                  <h3 class="upcoming-h3">Release date</h3>
-                </li>
-                <li class="upcoming-section-list-1-items">
-                  <h3 class="upcoming-h3">Vote/Votes</h3>
-                </li>
-              </ul>
-            </li>
-            <li class="upcoming-section-list-2">
-              <ul class="upcoming-section-list-1">
-                <li class="upcoming-section-list-2-items">
-                  <p class="release-date-text-upcoming">03.03.2023</p>
-                </li>
-                <li class="upcoming-section-list-2-items">
-                  <p class="vote-text-upcoming">
-                    <span class="vote-average-upcoming">7.3</span>/<span
-                      class="vote-count-upcoming"
-                      >1260</span
+      <!-- Arama Bölümü -->
+      <section class="search-section-catalog">
+        <div class="search-container-catalog">
+          <form id="search-form-catalog" class="search-form-catalog">
+            <div class="search-input-container">
+              <div class="input-wrapper-catalog">
+                <input type="text" id="search-input-catalog" placeholder="Film" />
+                <button
+                  type="button"
+                  id="clear-search"
+                  class="clear-search hidden"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="year-dropdown-container">
+                <button
+                  type="button"
+                  id="year-dropdown-btn"
+                  class="year-dropdown-btn"
+                >
+                  Year <span class="dropdown-arrow">▼</span>
+                </button>
+                <div id="year-dropdown-content" class="year-dropdown-content">
+                  <div class="year-option year-reset" data-year="">Tümü</div>
+                  <div class="year-option" data-year="2025">2025</div>
+                  <div class="year-option" data-year="2024">2024</div>
+                  <div class="year-option" data-year="2023">2023</div>
+                  <div class="year-option" data-year="2022">2022</div>
+                  <div class="year-option" data-year="2021">2021</div>
+                  <div class="year-option" data-year="2020">2020</div>
+                  <div class="year-option" data-year="2019">2019</div>
+                  <div class="year-option" data-year="2018">2018</div>
+                  <div class="year-option" data-year="2017">2017</div>
+                  <div class="year-option" data-year="2016">2016</div>
+                  <div class="year-option" data-year="2015">2015</div>
+                  <div class="year-option" data-year="2014">2014</div>
+                  <div class="year-option" data-year="2013">2013</div>
+                  <div class="year-option" data-year="2012">2012</div>
+                  <div class="year-option" data-year="2011">2011</div>
+                  <div class="year-option" data-year="2010">2010</div>
+                </div>
+              </div>
+              <button type="submit" class="search-button-catalog">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="24"
+                    fill="url(#paint0_linear_4609_3927)"
+                  />
+                  <path
+                    d="M23.1667 29.8333C26.8486 29.8333 29.8333 26.8486 29.8333 23.1667C29.8333 19.4848 26.8486 16.5 23.1667 16.5C19.4848 16.5 16.5 19.4848 16.5 23.1667C16.5 26.8486 19.4848 29.8333 23.1667 29.8333Z"
+                    stroke="#111111"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M31.5 31.5L27.875 27.875"
+                    stroke="#111111"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_4609_3927"
+                      x1="5.86292"
+                      y1="3.42976"
+                      x2="40.7333"
+                      y2="46.8333"
+                      gradientUnits="userSpaceOnUse"
                     >
-                  </p>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="upcoming-section-2-list-2">
-            <li class="upcoming-section-list-3">
-              <ul class="upcoming-section-list-1">
-                <li class="upcoming-section-list-3-items">
-                  <h3 class="upcoming-h3">Popularity</h3>
-                </li>
-                <li class="upcoming-section-list-3-items">
-                  <h3 class="upcoming-h3">Genre</h3>
-                </li>
-              </ul>
-            </li>
-            <li class="upcoming-section-list-4">
-              <ul class="upcoming-section-list-1">
-                <li class="upcoming-section-list-items">
-                  <p class="popularity-text-upcoming">99.9</p>
-                </li>
-                <li class="upcoming-section-list-items">
-                  <p class="genre-text-upcoming">Comedy,action</p>
-                </li>
-              </ul>
-            </li>
-          </ul>
+                      <stop stop-color="#FFC226" />
+                      <stop offset="1" stop-color="#F84119" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
-        <h3 class="upcoming-about-header">ABOUT</h3>
-        <p class="upcoming-about-text">NO DATA FOUND</p>
-        <button class="upcoming-button">Add to library</button>
-      </div>
-    </div>
-  </div>
-</div>
+      </section>
 
+      <!-- Film Listesi Bölümü -->
+      <section class="movies-section-catalog">
+        <h2></h2>
+        <div id="movies-grid" class="movies-grid">
+          <!-- Film kartları buraya eklenecek -->
+        </div>
+        <div id="no-results" class="no-results hidden">
+          <p>OOPS...</p>
+          <p>We are very sorry!</p>
+          <p>We don't have any results matching your search.</p>
+        </div>
+      </section>
+
+      <!-- Sayfalama Bölümü -->
+      <section class="pagination-section">
+        <div class="pagination" id="pagination">
+          <!-- Sayfalama butonları buraya eklenecek -->
+        </div>
       </section>
     </main>
 
