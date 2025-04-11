@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardContainer = document.getElementById('weekly-cards');
   const loader = document.getElementById('loader-weekly');
 
-  
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
     .then(res => res.json())
     .then(data => {
