@@ -77,30 +77,28 @@ export function openModal(movie) {
       .getElementById('modal-close')
       .addEventListener('click', closeModal);
     //Esc tuşuyla çıkış
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function onKeyDown(event) {
       if (event.key === 'Escape') {
         closeModal();
+        document.removeEventListener('keydown', onKeyDown); // Temizlik
       }
     });
     //Modal dışına tıklayınca kapatma
     modal.addEventListener('click', function (event) {
-      if (event.target.closest('.modal-content')) {
-        return;
+      if (!event.target.closest('.modal-content')) {
+        closeModal();
       }
-      closeModal();
     });
-
-    //const watchTrailerBtn = document.querySelector('.watch-trailer-btn');
-    //watchTrailerBtn.addEventListener('click', watchTrailer(movie.id));
 
     // Kütüphaneye ekleme butonu
-    
+
     setupLibraryButton(movie);
 
-    addLibraryBtn.addEventListener('click', () => {
-      toggleLibrary(movie);
-       setupLibraryButton(movie);
-    });
+     // Trailer açmak
+
+    const watchTrailerBtn = document.querySelector('.watch-trailer-btn');
+    watchTrailerBtn.addEventListener('click', () => watchTrailer(movie.id));
+    
   } catch (error) {
     console.error('Error fetching movie details:', error);
   }
@@ -148,3 +146,57 @@ export function closeModal() {
   document.body.style.overflow = 'auto';
   // updateLibrary(false, true);
 }
+
+
+async function watchTrailer(movieId) {
+  const apiKey = '3c5d79694d82b9e1fe6883553a34fc2d';
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const trailers = data.results.filter(
+      (video) => video.site === 'YouTube' && video.type === 'Trailer'
+    );
+
+    if (trailers.length > 0) {
+      const trailerKey = trailers[0].key;
+      const trailerUrl = `https://www.youtube.com/embed/${trailerKey}?autoplay=1`;
+
+      // Trailer modal ve iframe'ine erişim
+      const trailerModal = document.getElementById('trailer-modal');
+      const trailerFrame = document.getElementById('trailer-frame');
+
+      trailerFrame.src = trailerUrl;
+      trailerModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Sayfa scroll'u engelle
+
+      // Kapatma butonu
+      document
+        .getElementById('trailer-close-btn')
+        .addEventListener('click', () => {
+          trailerModal.classList.add('hidden');
+          trailerFrame.src = ''; // iframe temizle
+          document.body.style.overflow = 'auto';
+        });
+
+      // Dışarı tıklayınca kapatma
+      trailerModal.addEventListener('click', function (event) {
+        if (!event.target.closest('.trailer-modal-content')) {
+          trailerModal.classList.add('hidden');
+          trailerFrame.src = '';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+    } else {
+      alert('Trailer not found.');
+    }
+  } catch (error) {
+    console.error('Error fetching trailer:', error);
+    alert('Failed to load trailer.');
+  }
+}
+
+
