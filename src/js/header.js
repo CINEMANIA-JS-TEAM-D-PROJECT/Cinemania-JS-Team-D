@@ -25,7 +25,17 @@ function toggleMenu() {
   const yerDropdownBackround = document.querySelector('.year-dropdown-btn');
   const yerDropdownBackroundBorder = document.querySelector('.year-dropdown-btn');
   const yerDropdownBackroundContend = document.querySelector('.year-dropdown-content');
-  const yearOptions = document.querySelectorAll('.year-option'); // Tüm yıl seçeneklerini seç
+  const yearOptions = document.querySelectorAll('.year-option'); 
+  const modalContent = document.querySelector('.modal-content');
+  const modalContentColor = document.querySelector('.modal-content');
+  const modalButtonColor = document.querySelector('.modal-film-btns');
+  
+  
+  const genreFiltreBackrounda = document.querySelector('#genre-filter'); 
+  
+  
+  const footerModal = document.querySelector('.footer-modal-content');
+  
 
   if (!toggleButton) return;
 
@@ -62,6 +72,20 @@ function toggleMenu() {
     if (yerDropdownBackroundBorder) yerDropdownBackroundBorder.style.borderColor = 'black';
     if (yerDropdownBackroundContend) yerDropdownBackroundContend.style.backgroundColor = 'white';
     if (yerDropdownBackroundContend) yerDropdownBackroundContend.style.borderColor = 'black';
+    if (modalContent) modalContent.style.backgroundColor = 'white';
+
+
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.backgroundColor = 'white';
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.borderColor = '#111111';
+    
+
+
+
+    if (footerModal) footerModal.style.backgroundColor = 'white';
+    
+
+    
+
 
     writeColors.forEach(link => {
       link.style.color = '#282828';
@@ -77,6 +101,10 @@ function toggleMenu() {
     if (weekTitleColor) weekTitleColor.style.color = '#282828';
     if (modalPageButton) modalPageButton.style.color = '#595959';
     if (yerDropdownBackroundBorder) yerDropdownBackroundBorder.style.color = '#282828';
+    if (modalContentColor) modalContentColor.style.color = '#111111';
+    if (modalButtonColor) modalButtonColor.style.color = '#111111';
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.color = '#111111';
+
   }
 
   function applyLightMode() {
@@ -90,6 +118,14 @@ function toggleMenu() {
     if (yerDropdownBackroundBorder) yerDropdownBackroundBorder.style.borderColor = 'white';
     if (yerDropdownBackroundContend) yerDropdownBackroundContend.style.backgroundColor = '#111111';
     if (yerDropdownBackroundContend) yerDropdownBackroundContend.style.borderColor = 'white';
+    if (modalContent) modalContent.style.backgroundColor = '#111111';
+
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.backgroundColor = '#111111';
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.borderColor = 'white';
+
+
+    if (footerModal) footerModal.style.backgroundColor = '#111111';
+
 
     writeColors.forEach(link => {
       link.style.color = 'white';
@@ -104,6 +140,10 @@ function toggleMenu() {
     if (footerBackroundColor) footerBackroundColor.style.color = 'white';
     if (weekTitleColor) weekTitleColor.style.color = 'white';
     if (yerDropdownBackroundBorder) yerDropdownBackroundBorder.style.color = 'white';
+    if (modalContentColor) modalContentColor.style.color = 'white';
+    if (modalButtonColor) modalButtonColor.style.color = 'white';
+    if (genreFiltreBackrounda) genreFiltreBackrounda.style.color = 'white';
+
   }
 }
 

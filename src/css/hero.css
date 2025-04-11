@@ -53,12 +53,14 @@
   margin-left: 80px;
   position: relative;
   z-index: 2;
+  color: white;
 }
 
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 20px;
   line-height: 1.2;
+
 }
 
 .hero-rating {
