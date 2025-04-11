@@ -55,13 +55,13 @@ async function fetchAllGenres() {
 
 // DOM referansları
 const refs = {
-  imgBox: document.querySelector('.img-box'),
+  imgBox: document.querySelector('.img-box-upcoming'),
   movieTitle: document.querySelector('.upcoming-header-2'),
-  releaseDateText: document.querySelector('.release-date-text'),
-  voteAverageElement: document.querySelector('.vote-average'),
-  voteCountElement: document.querySelector('.vote-count'),
-  popularityText: document.querySelector('.popularity-text'),
-  genreText: document.querySelector('.genre-text'),
+  releaseDateText: document.querySelector('.release-date-text-upcoming'),
+  voteAverageElement: document.querySelector('.vote-average-upcoming'),
+  voteCountElement: document.querySelector('.vote-count-upcoming'),
+  popularityText: document.querySelector('.popularity-text-upcoming'),
+  genreText: document.querySelector('.genre-text-upcoming'),
   aboutText: document.querySelector('.upcoming-about-text'),
   addToLibraryBtn: document.querySelector('.upcoming-button'),
 };

@@ -58,7 +58,7 @@ body {
   border-style: hidden;
   outline: none;
 }
-.img-box {
+.img-box-upcoming {
   background-image: url(../img/no-poster-found-img.jpg);
   background-size: cover;
   background-position: center;
@@ -85,7 +85,7 @@ body {
 
   margin-bottom: 20px;
 }
-.lists {
+.lists-upcoming {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -116,7 +116,7 @@ body {
   border-style: hidden;
   outline: none;
 }
-.release-date-text {
+.release-date-text-upcoming {
   color: var(--orange);
   text-align: left;
   vertical-align: text-middle;
@@ -126,7 +126,7 @@ body {
   border-style: hidden;
   outline: none;
 }
-.vote-text {
+.vote-text-upcoming {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -134,8 +134,8 @@ body {
   gap: 4px;
   color: var(--secondary-text);
 }
-.vote-average,
-.vote-count {
+.vote-average-upcoming,
+.vote-count-upcoming {
   display: block;
   background-color: var(--white);
   color: var(--background);
@@ -150,7 +150,7 @@ body {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-.popularity-text {
+.popularity-text-upcoming {
   color: var(--white);
   text-align: left;
   vertical-align: text-middle;
@@ -159,7 +159,7 @@ body {
   border-style: hidden;
   outline: none;
 }
-.genre-text {
+.genre-text-upcoming {
   color: var(--white);
   text-align: left;
   vertical-align: text-middle;
@@ -225,7 +225,7 @@ body {
     font-size: 24px;
   }
 
-  .img-box {
+  .img-box-upcoming {
     
     width: 704px;
     height: 400px;
@@ -235,7 +235,7 @@ body {
     font-size: 28px;
   }
 
-  .lists {
+  .lists-upcoming {
     display: flex;
     flex-direction: row;
     gap: 118px;
@@ -273,7 +273,7 @@ body {
     font-size: 28px;
   }
 
-  .img-box {
+  .img-box-upcoming {
     
     width: 805px;
     height: 458px;
@@ -283,7 +283,7 @@ body {
     font-size: 32px;
   }
 
-  .lists {
+  .lists-upcoming {
     display: flex;
     flex-direction: column;
     gap: 12px;
