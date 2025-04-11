@@ -60,6 +60,29 @@
   text-decoration: underline;
 }
 
+.team-member {
+  text-align: center;
+  margin: 20px;
+}
+
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.social-links a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-links a img:hover {
+  transform: scale(1.2);
+}
+
 @keyframes heartbeat {
   0% {
     transform: scale(1);

@@ -2,15 +2,19 @@
   width: 1280px;
   height: 100%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-bottom: 60px;
+  margin-top: 80px;
 }
 .container-weekly-trends {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 80px;
   padding-bottom: 28px;
-  padding-left: 32px;
-  padding-right: 32px;
 }
 .title {
   width: 215px;
@@ -33,26 +37,31 @@
   cursor: pointer #f87719;
 }
 
-.content {
+#cards {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-bottom: 60px;
-  width: 100%;
   overflow: hidden;
 }
 .card {
-  transition: transform 0.3s ease-in-out;
+  height: 574px;
+  width: 100%;
+}
+#cards {
   display: flex;
   align-items: end;
   gap: 16px;
-}
-.card:hover {
-  transform: scale(0.9);
+
+  /* position: relative; */
 }
 
-.content .card h3 {
+.card:hover {
+  transition: transform 0.3s;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.card-content h3 {
   width: 223px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -64,7 +73,7 @@
   margin-top: -74px;
   margin-left: 20px;
 }
-.content .card p {
+.card-content p {
   width: 223px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -76,14 +85,8 @@
   margin-top: 10px;
 }
 
-.content .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
 .card-content {
-  background: linear-gradient(to top, #000c, #0000);
+  box-shadow: linear-gradient(to top, #000c, #0000);
 }
 .star {
   display: flex;
@@ -94,22 +97,19 @@
   margin-bottom: 10px;
 }
 
-/* .star.full use,
-.star.half use {
-  fill: url(#star-gradient);
-}
-
-.star.empty use {
-  stroke: url(#star-gradient);
-  fill: none;
-} */
-
 @media (min-width: 768px) and (max-width: 1279px) {
   .container-weekly {
     width: 100%;
     margin: auto;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-bottom: 44px;
+    margin-top: 52px;
   }
   .title {
     width: 185px;
@@ -119,28 +119,26 @@
     width: 72px;
     font-size: 24px;
   }
-  .content {
+  #cards {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 16px;
-    margin: auto;
-    padding: auto;
+    /* margin: auto;
+    padding: auto; */
   }
-
   .card {
+    height: 325px;
     width: 100%;
-    display: flex;
-    background-position: center;
   }
-  .content .card h3 {
-    width: 112px;
+  .card-content h3 {
+    width: 100%;
     font-size: 12px;
     line-height: 18px;
   }
-  .content .card p {
-    width: 112px;
+  .card-content p {
+    width: 100%;
     font-size: 12px;
     line-height: 18px;
   }
@@ -167,8 +165,13 @@
   .container-weekly {
     width: 100%;
     margin: auto;
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 32px;
+    margin-top: 40px;
   }
   .title {
     width: 123px;
@@ -178,39 +181,38 @@
     width: 48px;
     font-size: 16px;
   }
-  .content {
-    display: block;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
+  /* #cards {
     width: 100%;
+    display: block; 
+  } */
+  #cards.card {
+    display: none;
+  }
+  #cards.card:first-child {
+    display: block;
+  }
+  .content {
+    justify-content: center;
+    align-items: center;
   }
   .card {
-    display: block;
-    align-items: center;
-    column-gap: 16px;
+    height: 406px;
     width: 100%;
-    position: relative;
-    overflow: hidden;
+    display: none;
   }
   .card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
-  .content .card h3 {
-    width: 72px;
+  .card-content h3 {
+    width: 100%;
     font-size: 12px;
     line-height: 20px;
   }
-  .content .card {
-    display: none;
-  }
-  .content .card:first-child {
-    display: block;
-  }
-  .content .card p {
-    width: 72px;
+  .card-content p {
+    width: 100%;
     font-size: 12px;
     line-height: 20px;
   }
