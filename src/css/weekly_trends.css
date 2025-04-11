@@ -84,9 +84,12 @@
   margin-left: 20px;
   margin-top: 10px;
 }
-
 .card-weekly-content {
-  box-shadow: linear-gradient(to top, #000c, #0000);
+  box-shadow: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
 }
 .star-weekly {
   display: flex;
@@ -192,7 +195,6 @@
   #weekly-cards .card-weekly:first-child {
     display: none;
   }
-
   .card-weekly {
     height: 406px;
     width: 100%;
