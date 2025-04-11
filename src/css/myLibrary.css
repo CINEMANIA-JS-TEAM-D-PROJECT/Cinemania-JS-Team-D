@@ -1,5 +1,90 @@
+/* catalog ile aynı olduğu için buraya eklenenler */
+
+.movie-card-library {
+  width: 395px;
+  height: 574px;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  position: relative;
+}
+.movie-card-library:hover {
+  transform: scale(1.02);
+}
+
+.movie-card-library img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.movie-info-library {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: white;
+}
+
+.movie-title-library {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.movie-rating-library {
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.movie-rating-library .stars {
+  color: #ffd700;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .movie-card-library {
+    width: 224px;
+    height: 325px;
+    border-radius: 5px;
+}
+
+.movie-title-library {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.movie-rating-library {
+  font-size: 0.8rem;
+}
+
+.movie-rating-library .stars {
+  font-size: 0.8rem;
+}
+
+}
+
+/* Mobil Responsive (320px) */
+@media screen and (max-width: 320px) {
+.movie-card-library {
+  height: 400px;
+}
+
+.movie-title-library {
+  font-size: 1rem;
+}
+}
+/* ---------- */
+
+
+
+
 @media screen and (min-width: 1280px) {
-  .movie-list-container {
+  .movie-list-container-library {
     display: flex;
     flex-wrap: wrap;
     column-gap: 32px;
@@ -12,7 +97,7 @@
     
   }
 
-  #movie-list {
+  #movie-list-library {
     list-style: none;
     justify-content: space-around;
     gap: 20px;
@@ -28,13 +113,13 @@
     margin-top: 104px;
 
   }
-  .movie-poster {
+  .movie-poster-library {
     width: 72px;
     height: 40px;
     top: 878px;
     left: 32px;
   }
-  .message-btn {
+  .message-btn-library {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +195,7 @@
     justify-content: center;
   }
 
-  .search-btn {
+  .search-btn-library {
     width: 158px;
     height: 52px;
     top: 1032px;
@@ -133,7 +218,7 @@
     margin: 0 auto;
     padding: 10px 20px;
   }
-  .movie-rating {
+  .movie-rating-library {
     width: 106px;
     height: 18px;
 
@@ -174,7 +259,7 @@
    text-align: center;
    margin-left: 60px;
   }
-  .search-btn {
+  .search-btn-library {
     width: 133px;
     height: 40px;
     top: 640px;
@@ -218,7 +303,7 @@
     
 
   }
-  .movie-list-container {
+  .movie-list-container-library {
         column-gap: 12px;
         row-gap: 10px;
         padding: 0 20px;
@@ -226,14 +311,14 @@
         justify-content: flex-start;
     
   }
-  .message-btn {
+  .message-btn-library {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 
-  #movie-list {
+  #movie-list-library {
     list-style: none;
     justify-content: space-around;
     gap: 20px;
@@ -246,12 +331,12 @@
     margin-top: 30px;
 
   }
-  .movie-rating {
+  .movie-rating-library {
     width: 66px;
     height: 10px;
     gap: 4px;
   }
-  .movie-poster{
+  .movie-poster-library{
     width: 224px;
     height: 325px;
   }
@@ -312,7 +397,7 @@
     cursor: pointer;
     justify-content: center;
   }
-  .search-button {
+  .search-btn-library {
     width: 121px;
     height: 38px;
     top: 612px;
@@ -337,13 +422,13 @@
     margin: 0 auto;
     padding: 10px 20px;
   }
-  .message-btn {
+  .message-btn-library {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  #movie-list {
+  #movie-list-library {
     display: grid;
     width: 280px;
     height: 406px;
@@ -361,13 +446,13 @@
    
 
   }
-  .movie-list-container {
+  .movie-list-container-library {
     height: 100%;
     overflow: auto;
     display: flex;
     flex-direction: column;
   }
-  .movie-rating {
+  .movie-rating-library {
     width: 86px;
     height: 14px;
 

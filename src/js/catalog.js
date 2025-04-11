@@ -7,8 +7,8 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
 
 // DOM Elementleri
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
+const searchForm = document.getElementById('search-form-catalog');
+const searchInput = document.getElementById('search-input-catalog');
 const clearSearchBtn = document.getElementById('clear-search');
 const moviesGrid = document.getElementById('movies-grid');
 const noResults = document.getElementById('no-results');
@@ -102,7 +102,7 @@ export function displayMovies(movies) {
       : 'placeholder-image.jpg';
 
     const movieCard = document.createElement('div');
-    movieCard.className = 'movie-card';
+    movieCard.className = 'movie-card-catalog';
 
     // Film türlerini al
     const genres = movie.genre_ids ? getGenreNames(movie.genre_ids) : [];
@@ -112,8 +112,8 @@ export function displayMovies(movies) {
 
     movieCard.innerHTML = `
             <img src="${posterPath}" alt="${movie.title}">
-            <div class="movie-info">
-                <h3 class="movie-title">${movie.title}</h3>
+            <div class="movie-info-catalog">
+                <h3 class="movie-title-catalog">${movie.title}</h3>
                 <div class="movie-meta">
                     ${genres.length ? `<span>${genres.join(', ')}</span>` : ''}
                     ${year ? `<span>${year}</span>` : ''}
@@ -257,7 +257,7 @@ if (clearSearchBtn) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('search-input');
+  const searchInput = document.getElementById('search-input-catalog');
   const yearDropdownBtn = document.getElementById('year-dropdown-btn');
   const yearDropdownContent = document.getElementById('year-dropdown-content');
   const yearDropdownContainer = document.querySelector(
@@ -281,9 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', e => {
     // Eğer tıklanan eleman search input, year dropdown veya bunların içindeki bir element değilse
     const isSearchRelated =
-      e.target.closest('#search-input') ||
+      e.target.closest('#search-input-catalog') ||
       e.target.closest('.year-dropdown-container') ||
-      e.target.closest('.search-button');
+      e.target.closest('.search-button-catalog');
 
     // Dropdown içeriğini kapat
     if (

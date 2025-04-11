@@ -1,41 +1,5 @@
-/* Genel Stiller */
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #141414;
-    color: #ffffff;
-    
-    
-  } */
-
-
-/* Günün Filmi Bölümü */
-.hero-section {
-    width: 100%;
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-
 /* Arama Bölümü */
-.search-section {
+.search-section-catalog {
     padding: 2rem;
     background-color: #1a1a1a;
     display: flex;
@@ -44,7 +8,7 @@
     height: 120px;
 }
 
-.search-container {
+.search-container-catalog {
     max-width: 1200px;
     width: 100%;
     display: flex;
@@ -52,7 +16,7 @@
     position: relative;
 }
 
-.search-form {
+.search-form-catalog {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -69,12 +33,12 @@
     gap: 10px;
 }
 
-.input-wrapper {
+.input-wrapper-catalog {
     position: relative;
     width: 334px;
 }
 
-#search-input {
+#search-input-catalog {
     width: 100%;
     height: 48px;
     padding-top: 12px;
@@ -89,7 +53,7 @@
     transition: width 0.3s ease;
 }
 
-#search-input.expanded {
+#search-input-catalog.expanded {
     width: 100%;
 }
 
@@ -151,7 +115,7 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.search-button {
+.search-button-catalog {
     width: 48px;
     height: 48px;
     padding: 0;
@@ -163,7 +127,7 @@
     justify-content: center;
 }
 
-.search-button svg {
+.search-button-catalog svg {
     width: 48px;
     height: 48px;
 }
@@ -186,12 +150,12 @@
 }
 
 /* Film Listesi */
-.movies-section {
+.movies-section-catalog {
     padding: 2rem;
     margin-top: 0px;
 }
 
-.movies-section h2 {
+.movies-section-catalog h2 {
     margin-bottom: 1.5rem;
 }
 
@@ -205,7 +169,7 @@
     justify-content: center; 
 }
 
-.movie-card {
+.movie-card-catalog {
     width: 395px;
     height: 574px;
     background-color: #2a2a2a;
@@ -215,17 +179,17 @@
     position: relative;
 }
 
-.movie-card:hover {
+.movie-card-catalog:hover {
     transform: scale(1.02);
 }
 
-.movie-card img {
+.movie-card-catalog img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.movie-info {
+.movie-info-catalog {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -235,7 +199,7 @@
     color: white;
 }
 
-.movie-title {
+.movie-title-catalog {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     color: white;
@@ -249,14 +213,14 @@
     color: #999;
 }
 
-.movie-rating {
+.movie-rating-catalog {
     color: #ffd700;
     display: flex;
     align-items: center;
     gap: 0.3rem;
 }
 
-.movie-rating .stars {
+.movie-rating-catalog .stars {
     color: #ffd700;
     font-size: 1rem;
 }
@@ -326,7 +290,7 @@
 } 
 /* Tablet Responsive (768px) */
 @media screen and (max-width: 768px) {
-    .search-section {
+    .search-section-catalog {
         height: auto;
         padding: 1.5rem 1rem;
         position: relative;
@@ -334,7 +298,7 @@
         left: auto;
     }
 
-    .search-container {
+    .search-container-catalog {
         position: relative;
         justify-content: center;
     }
@@ -349,11 +313,11 @@
         left: auto;
     }
 
-    .input-wrapper {
+    .input-wrapper-catalog {
         width: 224px;
     }
 
-    #search-input, #search-input.expanded {
+    #search-input-catalog, #search-input-catalog.expanded {
         width: 100%;
         height: 40px;
         padding: 10px 35px 10px 15px;
@@ -374,11 +338,11 @@
         width: 95px;
     }
 
-    .search-button {
+    .search-button-catalog {
         margin-top: 0;
     }
 
-    .movies-section {
+    .movies-section-catalog {
         margin-top: 20px;
     }
 
@@ -391,13 +355,13 @@
         justify-content: center;
     }
 
-    .movie-card {
+    .movie-card-catalog {
         width: 224px;
         height: 325px;
         border-radius: 5px;
     }
 
-    .movie-title {
+    .movie-title-catalog {
         font-size: 1rem;
         margin-bottom: 0.3rem;
     }
@@ -407,11 +371,11 @@
         font-size: 0.8rem;
     }
 
-    .movie-rating {
+    .movie-rating-catalog {
         font-size: 0.8rem;
     }
 
-    .movie-rating .stars {
+    .movie-rating-catalog .stars {
         font-size: 0.8rem;
     }
 
@@ -428,7 +392,7 @@
 
 /* Mobil Responsive (320px) */
 @media screen and (max-width: 320px) {
-    .search-section {
+    .search-section-catalog {
         padding: 1rem 0.5rem;
     }
 
@@ -437,11 +401,11 @@
         gap: 10px;
     }
 
-    .input-wrapper {
+    .input-wrapper-catalog {
         width: 100%;
     }
 
-    #search-input {
+    #search-input-catalog {
         font-size: 14px;
         padding: 10px 35px 10px 15px;
         height: 40px;
@@ -456,12 +420,12 @@
         font-size: 14px;
     }
 
-    .search-button {
+    .search-button-catalog {
         width: 40px;
         height: 40px;
     }
 
-    .search-button svg {
+    .search-button-catalog svg {
         width: 40px;
         height: 40px;
     }
@@ -471,11 +435,11 @@
         gap: 15px;
     }
 
-    .movie-card {
+    .movie-card-catalog {
         height: 400px;
     }
 
-    .movie-title {
+    .movie-title-catalog {
         font-size: 1rem;
     }
 

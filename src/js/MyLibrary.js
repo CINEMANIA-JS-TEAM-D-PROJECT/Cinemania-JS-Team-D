@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
     // ✅ Modal açmak için film kartına tıklama listener'ı
     document.addEventListener('click', event => {
-      const card = event.target.closest('.movie-card');
+      const card = event.target.closest('.movie-card-library');
       if (card) {
         const movieId = card.querySelector('.remove-btn').getAttribute('data-id');
         const movie = currentMovies.find(m => m.id == movieId);
@@ -119,16 +119,16 @@ function updateMovieGenres() {
 }
 const genreSelect = document.getElementById('genre-select');
 export function renderMovies(movies, loadMore = false) {  
-  const movieContainer = document.getElementById('movie-list');
+  const movieContainer = document.getElementById('movie-list-library');
   if (!movieContainer) {
-    console.error("'movie-list' ID'li element bulunamadı!");
+    console.error("'movie-list-library' ID'li element bulunamadı!");
     return;
   }
 
   if (movies.length === 0) {
-    movieContainer.innerHTML = `<div class="message-btn" >
+    movieContainer.innerHTML = `<div class="message-btn-library" >
       <p class ="no-movies-message">OOPS... We are very sorry! You don’t have any movies at your library.</p>
-      <button id="go-to-catalog" class="search-btn">Search movie</button>
+      <button id="go-to-catalog" class="search-btn-library">Search movie</button>
     </div>
   `;
     if (genreSelect) {
@@ -178,11 +178,11 @@ export function renderMovies(movies, loadMore = false) {
     }
 
     const movieCardHTML = `
-      <div class="movie-card" data-genre="${genre}">
-        <img src="${posterUrl}" alt="${title}" class="movie-poster">
-        <div class="movie-info">
-          <h3 class="movie-title">${title} (${year})</h3>
-          <div class="movie-rating">${starsHTML}</div>
+      <div class="movie-card-library" data-genre="${genre}">
+        <img src="${posterUrl}" alt="${title}" class="movie-poster-library">
+        <div class="movie-info-library">
+          <h3 class="movie-title-library">${title} (${year})</h3>
+          <div class="movie-rating-library">${starsHTML}</div>
           <p class="movie-genre">${genre}</p>
         </div>
 
