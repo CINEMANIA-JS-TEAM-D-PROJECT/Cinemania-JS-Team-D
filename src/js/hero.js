@@ -1,3 +1,5 @@
+import { openModal } from './modal.js';
+
 // Sample API key - replace with your actual API key
 const API_KEY = '3c5d79694d82b9e1fe6883553a34fc2d';
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/original/';
@@ -136,6 +138,7 @@ function generateStars(rating) {
 // Function to create slider dots
 function createSliderDots(count) {
   const dotsContainer = document.getElementById('slider-dots');
+
   if (!dotsContainer) {
     console.error('Slider dots container not found');
     return;
@@ -216,13 +219,18 @@ function showSlide() {
                 <p class="hero-description">${movie.overview}</p>
                 <div class="hero-buttons">
                     <a href="javascript:void(0)" class="btn btn-primary" onclick="openTrailerModal(${movie.id})">Watch trailer</a>
-                    <a href="javascript:void(0)" class="btn btn-secondary" onclick="openDetailsModal(${movie.id})">More details</a>
+                    <a href="javascript:void(0)" class="btn btn-secondary" >More details</a>
                 </div>
             </div>
         </div>
     `;
 
   heroElement.innerHTML = slideHTML;
+  
+  const moreDetail = document.querySelector(".btn-secondary")
+  moreDetail.addEventListener('click', () => {
+    openModal(movie.id);
+  });
 }
 
 // Function to load hero slider content
