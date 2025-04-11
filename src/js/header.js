@@ -1,6 +1,6 @@
 function navMenu() {
   let menuButton = document.querySelector('.burger');
-  let openMenu = document.querySelector('.nav-links');
+  let openMenu = document.querySelector('.header-nav-links');
 
   menuButton.addEventListener('click', function () {
     this.classList.toggle('active');
@@ -9,14 +9,13 @@ function navMenu() {
 }
 
 function toggleMenu() {
-  let toggleButton = document.querySelector('.toggle-switch');
+  let toggleButton = document.querySelector('.header-toggle-switch');
   let body = document.querySelector('body');
-  let writeColors = document.querySelectorAll('.header, .nav-links a, .burger');
-  let navToggle = document.querySelector('.navbar');
-  let logo = document.querySelector('.logo');
-  let navLinksContainer = document.querySelector('.nav-links');
-  let catolog = document.querySelector('.search-section');
-  let catologBar = document.querySelector('#search-input');
+  let writeColors = document.querySelectorAll('.header, .header-nav-links a, .burger');
+  let navToggle = document.querySelector('.header-navbar');
+  let logo = document.querySelector('.header-logo');
+  let navLinksContainer = document.querySelector('.header-nav-links');
+  
 
   // Sayfa yüklendiğinde localStorage'dan tema bilgisini al
   let savedTheme = localStorage.getItem('theme');
@@ -48,8 +47,7 @@ function toggleMenu() {
     body.style.backgroundColor = 'white';
     navToggle.style.backgroundColor = 'white';
     navLinksContainer.style.backgroundColor = 'white';
-    // catolog.style.backgroundColor = "white";
-    // catologBar.style.backgroundColor = "white"; // Dark mode için
+
 
     writeColors.forEach(link => {
       link.style.color = '#282828';
@@ -63,8 +61,7 @@ function toggleMenu() {
     body.style.backgroundColor = 'black';
     navToggle.style.backgroundColor = 'black';
     navLinksContainer.style.backgroundColor = 'black';
-    // catologBar.style.backgroundColor = "black";
-    // catologBar.style.backgroundColor = "rgba(32, 40, 62, 0.8)"; // Light mode için
+ 
 
     writeColors.forEach(link => {
       link.style.color = 'white';

@@ -12,7 +12,7 @@ body {
   
 }
 
-.navbar {
+.header-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +28,7 @@ body {
   
 }
 
-.logo {
+.header-logo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -38,12 +38,12 @@ body {
   font-weight: bold;
 }
 
-.logo img {
+.header-logo img {
   width: 40px;
   height: 40px;
 }
 
-.nav-links {
+.header-nav-links {
   display: flex;
   gap: 30px;
   
@@ -53,7 +53,7 @@ body {
 
 
 
-.nav-links a {
+.header-nav-links a {
   
   text-decoration: none;
   font-weight: 500;
@@ -62,11 +62,11 @@ body {
   
 }
 
-.nav-links a:hover {
+.header-nav-links a:hover {
   color: #FF9800 !important;
 }
 
-.toggle-switch {
+.header-toggle-switch {
   width: 60px;
   height: 26px;
   background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
@@ -79,12 +79,12 @@ body {
   
   
 }
-.toggle-switch span {
+.header-toggle-switch span {
   padding-top: 6%;
   
 }
 
-.toggle-switch::after {
+.header-toggle-switch::after {
   content: '';
   position: absolute;
   width: 20px;
@@ -95,7 +95,7 @@ body {
   right: 3px;
   transition: transform 0.3s;
 }
-.toggle-switch.active::after{
+.header-toggle-switch.active::after{
   transform: translateX(-34px);
 }
 .burger{
@@ -104,7 +104,7 @@ body {
 
 
 @media (max-width: 720px) {
-  .nav-links {
+  .header-nav-links {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -121,29 +121,29 @@ body {
     transition: all ease .5s;
   }
 
-  .nav-links.active {
+  .header-nav-links.active {
     left: 0; /* Menü aktif olduğunda soldan sıfırlanır, görünür hale gelir */
     transition: all ease .5s;
   }
 
 
 
-  .navbar .burger{
+  .header-navbar .burger{
     display: block;
     cursor: pointer;
     transition: color 0.3s;
   }
 
-  .navbar .burger:hover{
+  .header-navbar .burger:hover{
     color: #FF9800 !important;
   }
 
-  .toggle-switch{
+  .header-toggle-switch{
     width: 50px;
     gap: 10px;
   }
 
-  .toggle-switch.active::after{
+  .header-toggle-switch.active::after{
     transform: translateX(-24px);
   }
 
