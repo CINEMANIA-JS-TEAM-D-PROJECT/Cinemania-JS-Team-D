@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #111111;
+  background-color: #111111 ;
   color: #ffffff;
   
   
@@ -64,6 +64,10 @@ body {
 
 .header-nav-links a:hover {
   color: #FF9800 !important;
+}
+
+.header-nav-links a.active{
+  color: #FF9800 !important; 
 }
 
 .header-toggle-switch {
@@ -148,4 +152,24 @@ body {
   }
 
   
+}
+
+
+@media (max-width: 500px){
+  .header-navbar{
+    padding: 0 12px ;
+    
+  }
+
+
+}
+
+@media (max-width: 320px){
+  .ccinemania{
+    display: none;
+    
+  }
+
+  
+
 }
