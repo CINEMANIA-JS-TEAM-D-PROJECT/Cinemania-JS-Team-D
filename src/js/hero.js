@@ -121,15 +121,15 @@ function generateStars(rating) {
   let starsHTML = '';
 
   for (let i = 0; i < fullStars; i++) {
-    starsHTML += '<span class="star">★</span>';
+    starsHTML += '<span class="hero-star">★</span>';
   }
 
   if (halfStar) {
-    starsHTML += '<span class="star">★</span>';
+    starsHTML += '<span class="hero-star">★</span>';
   }
 
   for (let i = 0; i < emptyStars; i++) {
-    starsHTML += '<span class="star" style="opacity: 0.5;">★</span>';
+    starsHTML += '<span class="hero-star" style="opacity: 0.5;">★</span>';
   }
 
   return starsHTML;
@@ -213,13 +213,13 @@ function showSlide() {
             <img src="${BASE_IMAGE_URL + movie.backdrop_path}" alt="${movie.title}" class="hero-bg">
             <div class="hero-content">
                 <h1 class="hero-title">${movie.title}</h1>
-                <div class="rating">
+                <div class="hero-rating">
                     ${generateStars(movie.vote_average)}
                 </div>
                 <p class="hero-description">${movie.overview}</p>
                 <div class="hero-buttons">
-                    <a href="javascript:void(0)" class="btn btn-primary" onclick="openTrailerModal(${movie.id})">Watch trailer</a>
-                    <a href="javascript:void(0)" class="btn btn-secondary" onclick="openDetailsModal(${movie.id})">More details</a>
+                    <a href="javascript:void(0)" class="hero-btn hero-btn-primary" onclick="openTrailerModal(${movie.id})">Watch trailer</a>
+                    <a href="javascript:void(0)" class="hero-btn hero-btn-secondary" onclick="openDetailsModal(${movie.id})">More details</a>
                 </div>
             </div>
         </div>
