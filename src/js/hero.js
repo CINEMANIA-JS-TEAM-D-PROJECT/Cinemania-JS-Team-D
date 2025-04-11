@@ -156,7 +156,7 @@ function showSlide() {
   // Create slide content
   const slideHTML = `
         <div class="hero-slide fade">
-            <img src="${BASE_IMAGE_URL + movie.backdrop_path}" alt="${movie.title}" class="hero-bg">
+            <img src="${BASE_IMAGE_URL + movie.backdrop_path}" alt="${movie.title}" class="hero-bg" loading="lazy">
             <div class="hero-content">
                 <h1 class="hero-title">${movie.title}</h1>
                 <div class="hero-rating">
