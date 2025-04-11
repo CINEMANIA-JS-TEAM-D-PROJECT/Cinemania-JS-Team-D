@@ -84,9 +84,12 @@
   margin-left: 20px;
   margin-top: 10px;
 }
-
 .card-weekly-content {
-  box-shadow: linear-gradient(to top, #000c, #0000);
+  box-shadow: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
 }
 .star-weekly {
   display: flex;
@@ -181,20 +184,22 @@
     width: 48px;
     font-size: 16px;
   }
-  /* #cards {
+  #weekly-cards {
     width: 100%;
-    display: block; 
-  } */
-  #weekly-cards.card-weekly {
+    display: -webkit-box;
+    overflow: hidden;
+  }
+  #weekly-cards .card-weekly {
     display: none;
   }
-  #weekly-cards.card-weekly:first-child {
-    display: block;
+  #weekly-cards .card-weekly:first-child {
+    display: none;
   }
-
   .card-weekly {
     height: 406px;
     width: 100%;
+    overflow: hidden;
+    position: relative;
     display: none;
   }
   .card-weekly-content {
