@@ -93,7 +93,6 @@
     margin-left: 32px;
     margin-right: 32px;
     margin-bottom: 40px;
-    margin-top: 24px;
     
   }
 
@@ -106,7 +105,7 @@
     margin-bottom: 24px;
     row-gap: 32px;
     flex-direction: row;
-    margin-left: 1px;
+    
     display: flex;
     flex-wrap: wrap;
     column-gap: 15px;
@@ -123,10 +122,9 @@
     display: inline-block;
     align-items: center;
     text-align: center;
-    margin-top: 24px;
     vertical-align: middle;
-    margin-left: 400px;
-    
+    flex-direction: column;
+    margin-top: 0px;
   }
 
   #load-more {
