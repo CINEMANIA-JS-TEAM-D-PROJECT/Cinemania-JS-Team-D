@@ -379,7 +379,6 @@ html[data-theme='light'] .modal-film-desc-about {
   font-size: 12px;
   line-height: 1.67;
   text-align: left;
-  color: var(--secondary-text);
   margin-bottom: 16px;
   width: 100%;
   max-height: 180px;
@@ -433,7 +432,6 @@ html[data-theme='light'] .modal-film-desc {
   font-size: 12px;
   text-align: center;
   color: var(--white-color);
-  background-color: #111111;
   transition: all 0.3s;
 }
 html[data-theme='light'] .watch-trailer-btn,
