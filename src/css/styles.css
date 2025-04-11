@@ -1,19 +1,6 @@
 /* Common styles */
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
-  
-  body {
-    font-family: "Roboto", 'Arial', sans-serif;
-    background-color: #111111;
-    color: #ffffff;
-    
-    
-  } */
+
 
 /* Sections style */
 @import url('./header.css');
