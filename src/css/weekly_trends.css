@@ -16,7 +16,7 @@
   justify-content: space-between;
   padding-bottom: 28px;
 }
-.title {
+.weekly-title {
   width: 215px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -37,18 +37,18 @@
   cursor: pointer #f87719;
 }
 
-#cards {
+#weekly-cards {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
   overflow: hidden;
 }
-.card {
+.card-weekly {
   height: 574px;
   width: 100%;
 }
-#cards {
+#weekly-cards {
   display: flex;
   align-items: end;
   gap: 16px;
@@ -56,12 +56,12 @@
   /* position: relative; */
 }
 
-.card:hover {
+.card-weekly:hover {
   transition: transform 0.3s;
   transform: scale(1.02);
   cursor: pointer;
 }
-.card-content h3 {
+.card-weekly-content h3 {
   width: 223px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -73,7 +73,7 @@
   margin-top: -74px;
   margin-left: 20px;
 }
-.card-content p {
+.card-weekly-content p {
   width: 223px;
   font-family: 'Roboto';
   font-weight: 500;
@@ -85,10 +85,10 @@
   margin-top: 10px;
 }
 
-.card-content {
+.card-weekly-content {
   box-shadow: linear-gradient(to top, #000c, #0000);
 }
-.star {
+.star-weekly {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -111,7 +111,7 @@
     margin-bottom: 44px;
     margin-top: 52px;
   }
-  .title {
+  .weekly-title {
     width: 185px;
     font-size: 24px;
   }
@@ -119,7 +119,7 @@
     width: 72px;
     font-size: 24px;
   }
-  #cards {
+  #weekly-cards {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,21 +128,21 @@
     /* margin: auto;
     padding: auto; */
   }
-  .card {
+  .card-weekly {
     height: 325px;
     width: 100%;
   }
-  .card-content h3 {
+  .card-weekly-content h3 {
     width: 100%;
     font-size: 12px;
     line-height: 18px;
   }
-  .card-content p {
+  .card-weekly-content p {
     width: 100%;
     font-size: 12px;
     line-height: 18px;
   }
-  .star {
+  .star-weekly {
     display: inline-flex;
     align-items: center;
     width: 66px;
@@ -150,12 +150,12 @@
     gap: 4px;
   }
 
-  .star.full use,
-  .star.half use {
+  .star-weekly.full use,
+  .star-weekly.half use {
     fill: url(#star-gradient);
   }
 
-  .star.empty use {
+  .star-weekly.empty use {
     stroke: url(#star-gradient);
     fill: none;
   }
@@ -173,7 +173,7 @@
     margin-bottom: 32px;
     margin-top: 40px;
   }
-  .title {
+  .weekly-title {
     width: 123px;
     font-size: 16px;
   }
@@ -185,38 +185,35 @@
     width: 100%;
     display: block; 
   } */
-  #cards.card {
+  #weekly-cards.card-weekly {
     display: none;
   }
-  #cards.card:first-child {
+  #weekly-cards.card-weekly:first-child {
     display: block;
   }
-  .content {
-    justify-content: center;
-    align-items: center;
-  }
-  .card {
+
+  .card-weekly {
     height: 406px;
     width: 100%;
     display: none;
   }
-  .card-content {
+  .card-weekly-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  .card-content h3 {
+  .card-weekly-content h3 {
     width: 100%;
     font-size: 12px;
     line-height: 20px;
   }
-  .card-content p {
+  .card-weekly-content p {
     width: 100%;
     font-size: 12px;
     line-height: 20px;
   }
-  .star {
+  .star-weekly {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -225,12 +222,12 @@
     gap: 4px;
   }
 
-  .star.full use,
-  .star.half use {
+  .star-weekly.full use,
+  .star-weekly.half use {
     fill: url(#star-gradient);
   }
 
-  .star.empty use {
+  .star-weekly.empty use {
     stroke: url(#star-gradient);
     fill: none;
   }

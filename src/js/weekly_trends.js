@@ -39,12 +39,11 @@ function getGenreNames(genreIds) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const theme = localStorage.getItem('theme'); // 'dark' veya 'light'
-  const titleElement = document.querySelector('.title');
-  const cardContainer = document.getElementById('cards');
+  const titleElement = document.querySelector('.weekly-title');
+  const cardContainer = document.getElementById('weekly-cards');
   const loader = document.getElementById('loader-weekly');
 
-  titleElement.style.color = theme === 'dark' ? 'black' : 'white';
-
+  
   fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
     .then(res => res.json())
     .then(data => {
@@ -73,18 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const stars = [
           ...Array(fullStars).fill(
-            '<svg class="star full"><use xlink:href="#icon-star"></use></svg>'
+            '<svg class="star-weekly full"><use xlink:href="#icon-star"></use></svg>'
           ),
           ...Array(halfStar).fill(
-            '<svg class="star half"><use xlink:href="#icon-star-half"></use></svg>'
+            '<svg class="star-weekly half"><use xlink:href="#icon-star-half"></use></svg>'
           ),
           ...Array(emptyStars).fill(
-            '<svg class="star empty"><use xlink:href="#icon-star-outline"></use></svg>'
+            '<svg class="star-weekly empty"><use xlink:href="#icon-star-outline"></use></svg>'
           ),
         ].join('');
 
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'card-weekly';
         card.style.backgroundImage = `url(${imageUrl})`;
         card.style.backgroundSize = 'cover';
         card.style.backgroundPosition = 'center';
@@ -98,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
           ' linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%)';
 
         card.innerHTML = `
-          <div class="card-content">
-             <h3 >${title}</h2>
+          <div class="card-weekly-content">
+             <h3 >${title}</h3>
              <p >${genres} | ${releaseYear}</p>
            </div>
-           <span class="star"> ${stars}</span>
+           <span class="star-weekly"> ${stars}</span>
 
          `;
         cardContainer.appendChild(card);
