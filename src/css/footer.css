@@ -1,9 +1,3 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
 .footer-container {
   font-family: 'Roboto', 'Arial', sans-serif;
   line-height: 1.6;
@@ -24,7 +18,7 @@
   width: 100%;
 }
 
-.container {
+.footer-content-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
@@ -98,7 +92,7 @@
 }
 
 /* Modal Stiller */
-.modal {
+.footer-modal {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -112,12 +106,12 @@
   transition: opacity 0.3s ease;
 }
 
-.modal.show {
+.footer-modal.show {
   display: block;
   opacity: 1;
 }
 
-.modal-content {
+.footer-modal-content {
   background-color: #1c1c1c;
   color: #ffffff;
   margin: 5% auto;
@@ -132,11 +126,11 @@
   border: 1px solid #333;
 }
 
-.modal.show .modal-content {
+.footer-modal.show .footer-modal-content{
   transform: translateY(0);
 }
 
-.close-button {
+.footer-close-button {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -147,18 +141,18 @@
   transition: color 0.3s ease;
 }
 
-.close-button:hover {
+.footer-close-button:hover {
   color: #ff6b08;
 }
 
-.modal-header {
+.footer-modal-header {
   border-bottom: 1px solid #333;
   padding-bottom: 15px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.modal-title {
+.footer-modal-title {
   color: #ff6b08;
   font-size: 24px;
   margin-bottom: 10px;
@@ -259,7 +253,7 @@
 /* Responsive Kırılma Noktaları */
 /* Tablet */
 @media screen and (max-width: 768px) {
-  .modal-content {
+  .footer-modal-content {
     width: 95%;
     margin: 10% auto;
   }
@@ -268,7 +262,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .modal-title {
+  .footer-modal-title {
     font-size: 22px;
   }
 
@@ -285,7 +279,7 @@
 
 /* Mobil */
 @media screen and (max-width: 480px) {
-  .modal-content {
+  .footer-modal-content {
     width: 95%;
     margin: 15% auto;
     padding: 15px;
@@ -295,7 +289,7 @@
     grid-template-columns: 1fr;
   }
 
-  .modal-title {
+  .footer-modal-title {
     font-size: 20px;
   }
 
