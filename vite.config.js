@@ -34,10 +34,10 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      outDir: 'docs',
+      outDir: '../docs',
       emptyOutDir: true,
     },
-    base: '/Cinemania-JS-Team-D/src/',
+    base: '/Cinemania-JS-Team-D/',
     plugins: [
       injectHTML(),
       FullReload(['./src/**/**.html']),
