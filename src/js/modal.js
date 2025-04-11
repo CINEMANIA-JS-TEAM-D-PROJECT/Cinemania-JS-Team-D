@@ -148,7 +148,7 @@ export function closeModal() {
 }
 
 
-async function watchTrailer(movieId) {
+export async function watchTrailer(movieId) {
   const apiKey = '3c5d79694d82b9e1fe6883553a34fc2d';
   const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`;
 
