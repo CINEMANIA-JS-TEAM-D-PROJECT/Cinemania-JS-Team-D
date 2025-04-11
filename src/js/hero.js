@@ -219,18 +219,14 @@ function showSlide() {
                 <p class="hero-description">${movie.overview}</p>
                 <div class="hero-buttons">
                     <a href="javascript:void(0)" class="btn btn-primary" onclick="openTrailerModal(${movie.id})">Watch trailer</a>
-                    <a href="javascript:void(0)" class="btn btn-secondary" >More details</a>
+                    <a href="javascript:void(0)" class="btn btn-secondary" onclick="openDetailsModal(${movie.id})">More details</a>
                 </div>
             </div>
         </div>
     `;
 
   heroElement.innerHTML = slideHTML;
-  
-  const moreDetail = document.querySelector(".btn-secondary")
-  moreDetail.addEventListener('click', () => {
-    openModal(movie.id);
-  });
+
 }
 
 // Function to load hero slider content
