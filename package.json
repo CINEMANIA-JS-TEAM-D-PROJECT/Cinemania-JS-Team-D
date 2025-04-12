@@ -3,12 +3,14 @@
   "private": true,
   "version": "1.0.1",
   "type": "module",
+  "homepage": "https://cinemania-js-team-d-project.github.io/Cinemania-JS-Team-D",
   "scripts": {
-  "build": "vite build", 
-  "dev": "vite",
-  "preview": "vite preview"
-},
-
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d docs"
+  },
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "glob": "^11.0.0",
