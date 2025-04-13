@@ -1,4 +1,4 @@
-import { openModal } from './modal.js';
+import { openModal } from './js/modal.js';
 
 // Global değişkenler
 let currentMovies = []; // tüm filmler

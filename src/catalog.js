@@ -1,4 +1,4 @@
-import { openModal } from './modal.js';
+import { openModal } from './js/modal';
 
 // API Yapılandırması
 const API_KEY =
