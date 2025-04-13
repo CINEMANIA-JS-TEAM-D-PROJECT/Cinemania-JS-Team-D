@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Cinemania-JS-Team-D/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinemania Team-D</title>
+    <script type="module" crossorigin src="/Cinemania-JS-Team-D/catalog.js"></script>
+    <link rel="modulepreload" crossorigin href="/Cinemania-JS-Team-D/assets/main-CIQFArmN.js">
+    <link rel="stylesheet" crossorigin href="/Cinemania-JS-Team-D/assets/main-Bil-z9zG.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="header">
+  <nav class="header-navbar">
+    <a href="./index.html" class="header-logo">
+      <img src="/Cinemania-JS-Team-D/assets/Frame%20770814-BlvYLyy5.svg" alt="Popcorn Icon" />
+      <span class="ccinemania">Cinemania</span>
+    </a>
+    <div class="header-nav-links">
+      <a href="./index.html" data-page="home">HOME</a>
+      <a href="./catalog.html" data-page="catalog">CATALOG</a>
+      <a href="./myLibrary.html" data-page="library">MY LIBRARY</a>
+    </div>
+    
+
+
+    <div class="burger">MENU</div>
+
+    <div class="header-toggle-switch">
+      <span
+        ><svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 13C10.7614 13 13 10.7614 13 8C13 5.23858 10.7614 3 8 3C5.23858 3 3 5.23858 3 8C3 10.7614 5.23858 13 8 13Z"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M12.907 3.093L12.998 3.002M3.002 12.998L3.093 12.907M8 1.056V1M8 15V14.944M1.056 8H1M15 8H14.944M3.093 3.093L3.002 3.002M12.998 12.998L12.907 12.907"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        ><svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.02506 7.77441C1.26668 11.1211 4.19963 13.8439 7.70978 13.9933C10.1863 14.0973 12.4012 12.9796 13.73 11.2185C14.2804 10.4972 13.9851 10.0163 13.0656 10.1788C12.6159 10.2568 12.1528 10.2893 11.6696 10.2698C8.38765 10.1398 5.70302 7.48199 5.6896 4.34329C5.68289 3.49851 5.8641 2.69921 6.19297 1.9714C6.55539 1.16561 6.11914 0.782204 5.28019 1.12662C2.62242 2.21184 0.803583 4.80467 1.02506 7.77441Z"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+    </div>
+  </nav>
+</div>
+
+    </header>
+    <main>
+      <section>
+        <div class="hero-container" id="hero-container">
+  <section class="hero" id="hero">
+    <!-- Hero content will be dynamically inserted here -->
+  </section>
+    <!-- Dots navigation at the bottom -->
+    <div class="slider-dots-container">
+      <div id="slider-dots">
+        <!-- Dots will be dynamically inserted here -->
+      </div>
+    </div>
+  
+</div>
+
+<!-- Trailer Modal
+<div id="trailerModal" class="hero-modal">
+  <div class="hero-modal-content">
+    <span class="hero-close-modal" onclick="closeTrailerModal()">&times;</span>
+    <div class="video-container" id="trailerVideoContainer"></div>
+  </div>
+</div> -->
+
+<!-- Details Modal
+<div id="detailsModal" class="hero-modal">
+  <div class="hero-modal-content">
+    <span class="hero-close-modal" onclick="closeDetailsModal()">&times;</span>
+    <div class="details-content" id="movieDetailsContainer"></div>
+  </div>
+</div> -->
+
+      </section>
+      <!-- Arama Bölümü -->
+      <section class="search-section-catalog">
+        <div class="search-container-catalog">
+          <form id="search-form-catalog" class="search-form-catalog">
+            <div class="search-input-container">
+              <div class="input-wrapper-catalog">
+                <input type="text" id="search-input-catalog" placeholder="Film" />
+                <button
+                  type="button"
+                  id="clear-search"
+                  class="clear-search hidden"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="year-dropdown-container">
+                <button
+                  type="button"
+                  id="year-dropdown-btn"
+                  class="year-dropdown-btn"
+                >
+                  Year <span class="dropdown-arrow">▼</span>
+                </button>
+                <div id="year-dropdown-content" class="year-dropdown-content">
+                  <div class="year-option year-reset" data-year="">Tümü</div>
+                  <div class="year-option" data-year="2025">2025</div>
+                  <div class="year-option" data-year="2024">2024</div>
+                  <div class="year-option" data-year="2023">2023</div>
+                  <div class="year-option" data-year="2022">2022</div>
+                  <div class="year-option" data-year="2021">2021</div>
+                  <div class="year-option" data-year="2020">2020</div>
+                  <div class="year-option" data-year="2019">2019</div>
+                  <div class="year-option" data-year="2018">2018</div>
+                  <div class="year-option" data-year="2017">2017</div>
+                  <div class="year-option" data-year="2016">2016</div>
+                  <div class="year-option" data-year="2015">2015</div>
+                  <div class="year-option" data-year="2014">2014</div>
+                  <div class="year-option" data-year="2013">2013</div>
+                  <div class="year-option" data-year="2012">2012</div>
+                  <div class="year-option" data-year="2011">2011</div>
+                  <div class="year-option" data-year="2010">2010</div>
+                </div>
+              </div>
+              <button type="submit" class="search-button-catalog">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="24"
+                    fill="url(#paint0_linear_4609_3927)"
+                  />
+                  <path
+                    d="M23.1667 29.8333C26.8486 29.8333 29.8333 26.8486 29.8333 23.1667C29.8333 19.4848 26.8486 16.5 23.1667 16.5C19.4848 16.5 16.5 19.4848 16.5 23.1667C16.5 26.8486 19.4848 29.8333 23.1667 29.8333Z"
+                    stroke="#111111"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M31.5 31.5L27.875 27.875"
+                    stroke="#111111"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_4609_3927"
+                      x1="5.86292"
+                      y1="3.42976"
+                      x2="40.7333"
+                      y2="46.8333"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#FFC226" />
+                      <stop offset="1" stop-color="#F84119" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Film Listesi Bölümü -->
+      <section class="movies-section-catalog">
+        <h2></h2>
+        <div id="movies-grid" class="movies-grid">
+          <!-- Film kartları buraya eklenecek -->
+        </div>
+        <div id="no-results" class="no-results hidden">
+          <p>OOPS...</p>
+          <p>We are very sorry!</p>
+          <p>We don't have any results matching your search.</p>
+        </div>
+      </section>
+
+      <!-- Sayfalama Bölümü -->
+      <section class="pagination-section">
+        <div class="pagination" id="pagination">
+          <!-- Sayfalama butonları buraya eklenecek -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+  <footer class="footer">
+    <div class="footer-content-container">
+      <div class="footer-content">
+        <p class="footer-text">
+          &copy; 2023 | All Rights Reserved | Developed with
+          <span class="heart">❤</span> by
+          <span class="team-link" id="teamLink">GoIT Students</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll Up Butonu -->
+    <button class="scroll-up-btn" id="scrollUpBtn" title="Yukarı Çık">
+      <span class="scroll-up-arrow"></span>
+    </button>
+
+    <!-- Ekip Üyeleri Modal -->
+    <div id="teamModal" class="footer-modal">
+      <div class="footer-modal-content">
+        <span class="footer-close-button" id="closeModal">&times;</span>
+        <div class="footer-modal-header">
+          <h2 class="footer-modal-title">GoIT Students Team</h2>
+          <p>Meet the talented developers behind this project</p>
+        </div>
+        <div class="team-grid">
+          <!-- Ekip Üyesi 1 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member1-DbxKRQ6F.png" alt="Team Member 1" class="member-avatar" />
+            <h3 class="member-name">Mevlüde</h3>
+            <p class="member-role">Scrum Master</p>
+            <p class="member-info">Modal Window & Loader</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/mevl%C3%BCde-%C3%B6zdemir-578444122/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/mevlude-ozdemir" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 2 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member2-DPjqNZ5v.png" alt="Team Member 2" class="member-avatar" />
+            <h3 class="member-name">Habibe</h3>
+            <p class="member-role">Team Leader</p>
+            <p class="member-info">My Library</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/habibecinar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/habibecinar" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 3 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member3-DdK9b-RR.png" alt="Team Member 3" class="member-avatar" />
+            <h3 class="member-name">Aysun</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Footer & Scroll Up</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/aysun-bekdemir-2115717b/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 4 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member4-CiX8akse.png" alt="Team Member 4" class="member-avatar" />
+            <h3 class="member-name">Özgen</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Weekly Trends</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/%C3%B6zgen-g%C3%BCler-1b37a7322/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/OzgenGuler" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 5 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member5-DY2EggAB.png" alt="Team Member 5" class="member-avatar" />
+            <h3 class="member-name">Berkan</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Catalog</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/berkan-g%C3%BCne%C5%9F-1ba2b0282/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/BerkanGunes" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 6 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member6-BWUlnZjL.png" alt="Team Member 6" class="member-avatar" />
+            <h3 class="member-name">Esat</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Upcoming this month</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/aysun-bekdemir-2115717b/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 7 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member7-BWyUCyRL.png" alt="Team Member 7" class="member-avatar" />
+            <h3 class="member-name">Alican</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Hero</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/alicank?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+
+          <!-- Ekip Üyesi 8 -->
+          <div class="team-member">
+            <img src="/Cinemania-JS-Team-D/assets/member8-CUp_1Ey2.png" alt="Team Member 7" class="member-avatar" />
+            <h3 class="member-name">Yuşa</h3>
+            <p class="member-role">Member</p>
+            <p class="member-info">Header & Tema Değiştirme</p>
+
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/aysun-bekdemir-2115717b/" target="_blank">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAABMCAYAAAARMotOAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAR5SURBVHgB7ZxdbhpJEICregLymqyWG+zsCUIeV6tgOMF6T7DJQ5B3X4JPYHwCO28OecEniPcEZvFG+2hyA3KDkRIcK9BdqcZYVmzDdEMjezz1STZG0yD8qX+qq3pAmLK29X8c0egVEW0CYAwCAEGCCo4KWNhNDn4dpDVH+6v08n2FQB/zszIIM8DWWfvZ7twWtkcqPToVkekohfXPB8+6s6/TaEdEusFT4M6864rnhRoIThC7KjePZ3Y8xT8xCO6cw1yZQiBEZkBEZkBEZkAewcJQgohHHC58vHiOTwCpAoQx5JQFZFJCgLtf2hv7t11db/zbYrE7kEM8hzn3RjL1L+3q/qwWZ+2NFu9nX0AO8ZJpe+Twbb2f1m54UO0g0WvIGe4ykQbzeuR1CiPT4ocEcoSzTE4v/QMeJJ16wi/qQo5w75kGU4f3DYg+QI6QODMg7jIVx5C+IMeeOcJZJhH+CR7YpDMv/5uQI3yGefmHRq/p2liZsZf8h4DXnMkr+k7p7/epw730138sklqQM3wXoDKN9el64+TW7WK5eVouNXp7pE0HcsiCiQ5qrTd6z7mr9i/DH056/Px1+Gkzz/WkJbJGYBeYmDVOFhmuj0wLx/lF4syAiMyALDPM7wk04Pmlj3iVVOEpp4xAMWe5/DcaS+Alkz9w5yqzntra7n5uDdr5H+2TY+KEF7YNulHbJyvudVEVO2lngB5vndSMMXax3Fh1FcBTJh4O31S7Lm1LL3vPCWfsgBD7Z2+qLXBgmrmvXTybSlw3+8l+PTlzeP30OEt3bes4joxqEuIrWBHZGeacT0Vj/rDJaReJ1zk/qA/4oclx8IBHxR6sgGwsQCyyiKbukuVPY8gJ7lWVVTIhU6F6kVz0rCCsqqxy72UWlenMO8a3KKsoq9x7mSF75Hfvy2UV7p2HEJBcB+0YqSMISK5lTqePYEM9kzsgG4jrMVVQ0SRDFfEO6FO7ulgvsxXUQBWBTMm0NzKA0nvGUA0nY+oiTaXBBve9QQSw7SsVDX3kQB5CkJlhfnlHCM0+Nh6z1HculYDvwaVj10syI5NQv3NKPGvttbvBCAcQiEzI/LHRs3Na7NI27RD/jfZKBVuAMiFTI/zu0340jJwXFG2+5ksmkl9ekpBiuAMyIZPATw7eUVEvKwuQpxz8Ce4AqQEFRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQGRGQG5AGcHL4b7B14j2Ack6a4EBW69tCt9MwFiWBUM2Y8SVqP+G/7KDIXhMzVsRoEHNiKqNcwJ0OVx1snbm2JngDNuMZlCHvEBRwxhsAHn/e3w5QWONChlE5IF5NCpBJtRhV7LBzXGz2/T5pzikr/cnnMcXJOXhfLw7e/TU6FyAK0BOfXzo7KnBkQkRkQkRkQkRkQKzNXX+S0NGuzfanQdxw8bKhv48lZV5WOjP1KMumdDiiltudet7ESUlQHEToX3tlsp93cNVmAbARvlH7KLzm0ty+DMMV+4Sp0kPRTly8V/AYKFJkPVdjmPwAAAABJRU5ErkJggg==" alt="LinkedIn" width="24" height="24">
+              </a>
+              <a href="https://github.com/" target="_blank">
+                <img src="/Cinemania-JS-Team-D/assets/GitHub-Mark-ea2971cee799-DzGq4Dyy.png" alt="GitHub" width="24" height="24">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+    </footer>
+    <!-- Modal Penceresi -->
+<div id="movie-modal" class="modal hidden">
+  <div id="modal-content" class="modal-content"></div>
+</div>
+<!-- index.html içinde, sayfanın sonlarına ekleyebilirsin -->
+<div id="trailer-modal" class="trailer-modal hidden">
+  <div class="trailer-modal-content">
+    <button id="trailer-close-btn" class="trailer-close-btn">X</button>
+    <iframe id="trailer-frame" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+  </body>
+</html>
