@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #111111 ;
+  
+  
+  
+}
+
+.header-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  height: 9.1vh;
+  top: 0;
+  
+  
+  
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.header-nav-links {
+  display: flex;
+  gap: 30px;
+  
+  
+  
+}
+
+
+
+.header-nav-links a {
+  
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  color: white;
+  
+}
+
+.header-nav-links a:hover {
+  color: #FF9800 !important;
+}
+
+.header-nav-links a.active{
+  color: #FF9800 !important; 
+}
+
+.header-toggle-switch {
+  width: 60px;
+  height: 26px;
+  background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  
+  
+}
+.header-toggle-switch span {
+  padding-top: 6%;
+  
+}
+
+.header-toggle-switch::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  top: 3px;
+  right: 3px;
+  transition: transform 0.3s;
+}
+.header-toggle-switch.active::after{
+  transform: translateX(-34px);
+}
+.burger{
+  display: none;
+}
+
+
+@media (max-width: 720px) {
+  .header-nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -100%; /* Menü başlangıçta gizli, soldan çıkacak */
+    top: 9vh;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 55%;
+    align-items: start;
+    padding-left: 30px;
+    height: 91vh;
+    padding-top: 25px;
+    gap: 55px;
+    transition: all ease .5s;
+  }
+
+  .header-nav-links.active {
+    left: 0; /* Menü aktif olduğunda soldan sıfırlanır, görünür hale gelir */
+    transition: all ease .5s;
+  }
+
+
+
+  .header-navbar .burger{
+    display: block;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .header-navbar .burger:hover{
+    color: #FF9800 !important;
+  }
+
+  .header-toggle-switch{
+    width: 50px;
+    gap: 10px;
+  }
+
+  .header-toggle-switch.active::after{
+    transform: translateX(-24px);
+  }
+
+  
+}
+
+
+@media (max-width: 500px){
+  .header-navbar{
+    padding: 0 12px ;
+    
+  }
+
+
+}
+
+@media (max-width: 320px){
+  .ccinemania{
+    display: none;
+    
+  }
+
+  
+
+}

@@ -1,0 +1,239 @@
+.container-weekly {
+  width: 1280px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-bottom: 60px;
+  margin-top: 80px;
+}
+.container-weekly-trends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 28px;
+}
+.weekly-title {
+  width: 215px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+
+.seeall {
+  width: 84px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #f87719;
+  cursor: pointer #f87719;
+}
+
+#weekly-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+.card-weekly {
+  height: 574px;
+  width: 100%;
+}
+#weekly-cards {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+
+  /* position: relative; */
+}
+
+.card-weekly:hover {
+  transition: transform 0.3s;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.card-weekly-content h3 {
+  width: 223px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: -74px;
+  margin-left: 20px;
+}
+.card-weekly-content p {
+  width: 223px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #b7b7b7;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.card-weekly-content {
+  box-shadow: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+}
+.star-weekly {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 106px;
+  height: 18px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .container-weekly {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-bottom: 44px;
+    margin-top: 52px;
+  }
+  .weekly-title {
+    width: 185px;
+    font-size: 24px;
+  }
+  .seeall {
+    width: 72px;
+    font-size: 24px;
+  }
+  #weekly-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+    /* margin: auto;
+    padding: auto; */
+  }
+  .card-weekly {
+    height: 325px;
+    width: 100%;
+  }
+  .card-weekly-content h3 {
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .card-weekly-content p {
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .star-weekly {
+    display: inline-flex;
+    align-items: center;
+    width: 66px;
+    height: 10px;
+    gap: 4px;
+  }
+
+  .star-weekly.full use,
+  .star-weekly.half use {
+    fill: url(#star-gradient);
+  }
+
+  .star-weekly.empty use {
+    stroke: url(#star-gradient);
+    fill: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-weekly {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 32px;
+    margin-top: 40px;
+  }
+  .weekly-title {
+    width: 123px;
+    font-size: 16px;
+  }
+  .seeall {
+    width: 48px;
+    font-size: 16px;
+  }
+  #weekly-cards {
+    width: 100%;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+  #weekly-cards .card-weekly {
+    display: none;
+  }
+  #weekly-cards .card-weekly:first-child {
+    display: none;
+  }
+  .card-weekly {
+    height: 406px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: none;
+  }
+  .card-weekly-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .card-weekly-content h3 {
+    width: 100%;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .card-weekly-content p {
+    width: 100%;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .star-weekly {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 86px;
+    height: 14px;
+    gap: 4px;
+  }
+
+  .star-weekly.full use,
+  .star-weekly.half use {
+    fill: url(#star-gradient);
+  }
+
+  .star-weekly.empty use {
+    stroke: url(#star-gradient);
+    fill: none;
+  }
+}
