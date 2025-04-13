@@ -178,13 +178,15 @@ export function renderMovies(movies, loadMore = false) {
     const rating = movie.vote_average || 0;
     const id = movie.id;
 
+   
+
     let starsHTML = '';
     if (rating >= 8.5) {
-      starsHTML = `<img src="/img/5star.png" alt="5 stars" class="star-icon" />`;
+      starsHTML = `<img src="./public/images/5star.png" alt="5 stars" class="star-icon" />`;
     } else if (rating >= 6.5) {
-      starsHTML = `<img src="/img/4half.png" alt="4.5 stars" class="star-icon" />`;
+      starsHTML = `<img src="./public/images/4half.png" alt="4.5 stars" class="star-icon" />`;
     } else if (rating >= 4) {
-      starsHTML = `<img src="/img/3half.png" alt="3.5 stars" class="star-icon" />`;
+      starsHTML = `<img src="./public/images/3half.png" alt="3.5 stars" class="star-icon" />`;
     }
 
     const movieCardHTML = `
